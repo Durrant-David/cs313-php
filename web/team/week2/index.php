@@ -12,20 +12,20 @@
     <body>        
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 well">
+                <div class="col-sm-4 well red">
                     <div id="color" class="hover">change my color</div>
                     <div>
                         Text color: <input type="text" id="txtColor"><br>
                         <button id="btnColor">Change color</button>
                     </div>
                 </div>
-                <div class="col-sm-4 well">
+                <div class="col-sm-4 well red">
                     <div class="hover">Alert</div>
                     <div>
                         <button onclick="myAlert();">Click Me</button>
                     </div>
                 </div>
-                <div class="col-sm-4 well">
+                <div class="col-sm-4 well red">
                     <div class="hover tHide">hide me</div>
                     <div>
                         <button id="btnHide">Toggle div</button>
