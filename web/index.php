@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<?php include '/view/menu.php'; ?>
+<?php include 'view/menu.php'; ?>
   
 <div class="container">
   <h3>Basic Navbar Example</h3>
