@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bootstrap Example</title>
+        <title>David Durrant</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,11 +11,21 @@
     </head>
     <body>
         <?php include 'view/menu.php'; ?>
-        <div class="bg"></div>
-
-        <div class="container">
-            <h3>Basic Navbar Example</h3>
-            <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+        <div class="bg">
+            <div class="bg-spacer"></div>
+            <div class="row">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-1">
+                    <img src="media/images/IMG_20180919_095658.jpg" id= "personalImg" class="img-circle" alt="David Durrant">  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                main content
+            </div>
+            <div class="col-sm-2">
+            </div>
         </div>
 
     </body>
