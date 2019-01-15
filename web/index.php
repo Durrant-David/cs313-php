@@ -24,7 +24,7 @@
         </div>
         <div class="row container">
             <div class="col-sm-6">
-                <img src="media/images/vivoactive_hr.jpg" class="size-img-large" alt="vivoactive watch">
+                <img src="media/images/vivoactive_hr.jpg" class="size-img-large responsive" alt="vivoactive watch">
             </div>
             <div class="col-sm-4 item">
                 <div class="spacer-top-img hidden-xs"></div>

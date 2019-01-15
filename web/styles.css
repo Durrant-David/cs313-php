@@ -30,7 +30,7 @@ body, html {
 }
 
 .spacer-top-img {
-    margin-top: 175px;
+    margin-top: 170px;
 }
 
 .size-img-small {
@@ -44,7 +44,7 @@ body, html {
 .txt-styling-img {
     color: white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    font-size: 23px;
+    font-size: 22px;
 }
 
 .txt-styling {
@@ -58,8 +58,7 @@ body, html {
 }
 
 .mrgn {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 
