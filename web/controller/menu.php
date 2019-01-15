@@ -11,7 +11,7 @@
             $array["parent"] = pg_result($result, $row, 'parent_menu');        
             $dbResults[] = $array;
         }        
-        echo $dbResults;
+        var_dump($dbResults);
     } else {        
         echo "The query failed with the following error:<br>n";        
         echo pg_errormessage($db_handle);        
