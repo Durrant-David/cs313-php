@@ -11,24 +11,42 @@
     </head>
     <body>
         <?php include 'view/menu.php'; ?>
-        <div class="row bgMtn1">
-            <div class="col-sm-9"></div>
-            <div class="col-sm-1">
-                <img src="media/images/profile.jpg" id="personalImg" class="img-circle" alt="David Durrant">  
+        <div class="bgMtn1">
+            <div class="media">
+                <div class="spacer-top-img"></div>
+                <div class="media-body">
+                    <p class="text-center txt-styling-img">My Interests include hiking the various mountains native to Utah. </p>
+                </div>
+                <div class="media-right">
+                    <img src="media/images/profile.jpg" class="img-circle size-img-small" alt="David Durrant">  
+                </div>
             </div>
         </div>
-        <div class="row bg-spacer">
-            <div class="col-sm-8">
-                My Interests include hiking the various mountains native to Utah. Included are some pictures I have taking on some of my hikes.
+        <div class="row container">
+            <div class="col-sm-6">
+                <img src="media/images/vivoactive_hr.jpg" class="size-img-large" alt="vivoactive watch">
+            </div>
+            <div class="col-sm-4 item">
+                <div class="spacer-top-img hidden-xs"></div>
+                <p class="txt-styling">I use a GPS watch to track my adventures!</p>
             </div>
             <div class="col-sm-2">
             </div>
         </div>
-        <div class="row bgMtn2">
-            <div class="col-sm-8">
-                
+        <div class="row bgMtn2 mrgn">
+            <div class="col-sm-12">
+                <p class="text-center txt-styling-img spacer-top-img">Included are some pictures I have taking on some of my hikes.</p>
             </div>
+        </div>
+        <div class="row container mrgn">
             <div class="col-sm-2">
+            </div>
+            <div class="col-sm-4 item">
+                <div class="spacer-top-img hidden-xs"></div>
+                <p class="txt-styling">My friends have nicknamed me Mountain goat</p>
+            </div>
+            <div class="col-sm-6">
+                <img src="media/images/mountain_goat.jpg" class="size-img-large img-circle" alt="vivoactive watch">
             </div>
         </div>
     </body>

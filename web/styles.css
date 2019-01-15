@@ -21,7 +21,7 @@ body, html {
   background-image: url("./media/images/timpanogos.jpg");
 
   /* Full height */
-  height: 300px; 
+  height: 500px; 
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -29,11 +29,37 @@ body, html {
   background-size: cover;
 }
 
-.bg-spacer {
-    margin-top: 100px;
+.spacer-top-img {
+    margin-top: 175px;
 }
 
-#personalImg {
-    max-height: 200px;
-    margin-top: 200px;
+.size-img-small {
+    max-height: 175px;
 }
+
+.size-img-large {
+    max-height: 500px;
+}
+
+.txt-styling-img {
+    color: white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-size: 23px;
+}
+
+.txt-styling {
+    color: black;
+    font-size: 23px;
+}
+
+.align-md {
+     margin: 0 auto;
+     max-width: 700px;
+}
+
+.mrgn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
