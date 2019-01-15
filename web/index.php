@@ -11,7 +11,7 @@
     </head>
     <body>
         <?php include 'view/menu.php'; ?>
-        <div class="bgMtn1">
+        <div class="bgMtn1 mrgn">
             <div class="media">
                 <div class="spacer-top-img"></div>
                 <div class="media-body">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="row container">
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-center">
                 <img src="media/images/vivoactive_hr.jpg" class="size-img-large responsive" alt="vivoactive watch">
             </div>
             <div class="col-sm-4 item">
