@@ -3,12 +3,25 @@ body, html {
   margin: 0;
 }
 
-.bg {
+.bgMtn1 {
   /* The image used */
   background-image: url("./media/images/IMG_20180724_090202.jpg");
 
   /* Full height */
-  height: 50%; 
+  height: 300px; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgMtn2 {
+  /* The image used */
+  background-image: url("./media/images/timpanogos.jpg");
+
+  /* Full height */
+  height: 300px; 
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -17,10 +30,10 @@ body, html {
 }
 
 .bg-spacer {
-    height: 70%;
+    margin-top: 100px;
 }
 
 #personalImg {
     max-height: 200px;
-    
+    margin-top: 200px;
 }
