@@ -6,10 +6,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">CS 313</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+        <?php 
+          include '../controller/menu.php';
+          $menuItems[] = getMenuItems();
+          foreach ($menuItems as $item) {
+            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
+          }
+          ?>
         <li class="active"><a href="#">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>

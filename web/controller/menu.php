@@ -1,4 +1,5 @@
 <?php
+function getMenuItems() {
     include 'connection.php';
     $query = "SELECT * FROM menu";   
     $result = pg_exec($db_connection, $query);   
@@ -11,10 +12,12 @@
             $array["parent"] = pg_result($result, $row, 'parent_menu');        
             $dbResults[] = $array;
         }        
-        var_dump($dbResults);
     } else {        
         echo "The query failed with the following error:<br>n";        
         echo pg_errormessage($db_handle);        
     }    
-    pg_close($db_handle); 
+    pg_close($db_handle);
+    
+    return $dbResults;
+}
 ?>
