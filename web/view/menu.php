@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav">
         <?php 
           include '../controller/menu.php';
-          $menuItems = getMenuItems();
+          var_dumb($dbResults)
 //          foreach ($menuItems as $item) {
 //            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
 //          }

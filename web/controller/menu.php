@@ -1,5 +1,5 @@
 <?php
-function getMenuItems() {
+//function getMenuItems() {
     include 'connection.php';
     $query = "SELECT * FROM menu";   
     $result = pg_exec($db_connection, $query);   
@@ -18,6 +18,6 @@ function getMenuItems() {
     }    
     pg_close($db_handle);
     
-    return $dbResults;
-}
+//    return $dbResults;
+//}
 ?>
