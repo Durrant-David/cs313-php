@@ -3,10 +3,8 @@ function getMenuItems() {
     include 'connection.php';
     $query = "SELECT * FROM menu";   
     $result = pg_exec($db_connection, $query);   
-    if ($result) {        
-        echo "The query executed successfully.<br>";        
+    if ($result) {              
         for ($row = 0; $row < pg_numrows($result); $row++) { 
-            echo $row;
             $array["id"] = pg_result($result, $row, 'id');
             $array["title"] = pg_result($result, $row, 'title');        
             $array["link"] = pg_result($result, $row, 'link');        

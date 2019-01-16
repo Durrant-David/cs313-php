@@ -14,9 +14,9 @@
           include 'controller/menu.php';
           $items = getMenuItems();
           //var_dump($dbResults);
-//          foreach ($menuItems as $item) {
-//            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
-//          }
+          foreach ($items as $item) {
+            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
+          }
           ?>
         <li class="active"><a href="#">Home</a></li>
         <li class="dropdown">
