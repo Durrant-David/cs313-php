@@ -24,12 +24,13 @@
                           if($noSubItem == true) {
                               ?>
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo $item["link"]; ?>"><?php echo $item["title"]; ?> <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo $item["link"]; ?>"><?php echo $item["title"]; ?><span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                               <?php
                               $noSubItem = false;
                           }
                           echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
+                          echo $i;
                           if($i == $itemCount) {
                             echo '</ul></li>';
                           }
