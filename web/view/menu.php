@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <?php 
-          include '../controller/menu.php';
+          include 'controller/menu.php';
           getMenuItems();
           var_dump($dbResults);
 //          foreach ($menuItems as $item) {
