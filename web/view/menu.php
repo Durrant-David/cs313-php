@@ -34,7 +34,7 @@
                             echo '</ul></li>';
                           }
                       }
-                      echo $i;
+                      echo $itemCount;
                       $i++;
                   }
                   if($noSubItem == true){
