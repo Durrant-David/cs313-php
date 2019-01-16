@@ -11,7 +11,6 @@
             $array["link"] = pg_result($result, $row, 'link');        
             $array["parent"] = pg_result($result, $row, 'parent_menu');        
             $dbResults[] = $array;
-          var_dumb($dbResults);
         }        
     } else {        
         echo "The query failed with the following error:<br>n";        
@@ -19,6 +18,7 @@
     }    
     pg_close($db_handle);
     
+    var_dumb($dbResults);
 //    return $dbResults;
 //}
 ?>
