@@ -30,11 +30,11 @@
                               $noSubItem = false;
                           }
                           echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
-                          echo $i;
                           if($i == $itemCount) {
                             echo '</ul></li>';
                           }
                       }
+                      echo $i;
                       $i++;
                   }
                   if($noSubItem == true){
