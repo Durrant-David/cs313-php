@@ -6,6 +6,7 @@
     if ($result) {        
         echo "The query executed successfully.<br>";        
         for ($row = 0; $row < pg_numrows($result); $row++) { 
+            echo $row;
             $array["id"] = pg_result($result, $row, 'id');
             $array["title"] = pg_result($result, $row, 'title');        
             $array["link"] = pg_result($result, $row, 'link');        
