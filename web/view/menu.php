@@ -14,6 +14,7 @@
           include 'controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
+          $itemCount--;
           //var_dump($dbResults);
           foreach ($items as $item) {
               if($item["parent"] == 0){
@@ -30,11 +31,10 @@
                               $noSubItem = false;
                           }
                           echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
-                          if($i == $itemCount - 1) {
+                          if($i == $itemCount) {
                             echo '</ul></li>';
                           }
                       }
-                      echo $itemCount;
                       $i++;
                   }
                   if($noSubItem == true){
