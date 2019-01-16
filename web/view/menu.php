@@ -13,9 +13,27 @@
         <?php 
           include 'controller/menu.php';
           $items = getMenuItems();
+          $itemCount = count($items);
           //var_dump($dbResults);
           foreach ($items as $item) {
-            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
+              if($item["parent"] == 0){
+                echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
+                  $firstSubItem = true;
+                  $i = 0;
+                  foreach ($items as $subitem) {
+                      if($subitem["parent"] == $items["id"]){
+                          if($firstSubItem == true) {
+                              echo '<ul class="dropdown-menu">';
+                              $firstSubItem = false;
+                          }
+                          echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
+                          if($i == $itemCount) {
+                            echo '</ul>';
+                          }
+                      }
+                      $i++;
+                  }
+              }
           }
           ?>
         <li class="active"><a href="#">Home</a></li>
