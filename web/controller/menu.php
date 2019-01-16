@@ -1,7 +1,7 @@
 <?php
 function getMenuItems() {
     include 'connection.php';
-    $query = "SELECT * FROM menu ORDERBY id";   
+    $query = "SELECT * FROM menu ORDER BY id ASC";   
     $result = pg_exec($db_connection, $query);   
     if ($result) {              
         for ($row = 0; $row < pg_numrows($result); $row++) { 
