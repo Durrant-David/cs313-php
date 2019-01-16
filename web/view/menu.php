@@ -17,21 +17,27 @@
           //var_dump($dbResults);
           foreach ($items as $item) {
               if($item["parent"] == 0){
-                echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
-                  $firstSubItem = true;
+                  $noSubItem = true;
                   $i = 0;
                   foreach ($items as $subitem) {
-                      if($subitem["parent"] == $items["id"]){
-                          if($firstSubItem == true) {
-                              echo '<ul class="dropdown-menu">';
-                              $firstSubItem = false;
+                      if($subitem["parent"] == $item["id"]){
+                          if($noSubItem == true) {
+                              ?>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                              <?php
+                              $noSubItem = false;
                           }
                           echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
                           if($i == $itemCount) {
-                            echo '</ul>';
+                            echo '</ul></li>';
                           }
                       }
                       $i++;
+                  }
+                  if($noSubItem == true){
+                      echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
                   }
               }
           }
