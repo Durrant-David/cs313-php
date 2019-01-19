@@ -20,7 +20,7 @@
                 }
                 return $protocol . "://" . $_SERVER['HTTP_HOST'] . '/controller/menu.php';
           }
-          include url();
+          include 'https://salty-tundra-18278.herokuapp.com/controller/menu.php';
           //include 'controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
