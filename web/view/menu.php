@@ -12,6 +12,7 @@
       <ul class="nav navbar-nav">
         <?php 
           $url = 'https://' . $_SERVER['SERVER_NAME'] . '/controller/menu.php';
+          echo $url;
           include $url;
           $items = getMenuItems();
           $itemCount = count($items);
