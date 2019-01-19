@@ -11,8 +11,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <?php 
-          echo $_SERVER['SERVER_NAME'] . 'controller/menu.php';
-          include $_SERVER['SERVER_NAME'] . '/controller/menu.php';
+          $url = $_SERVER['SERVER_NAME'] . '/controller/menu.php';
+          include $url;
           $items = getMenuItems();
           $itemCount = count($items);
           //var_dump($dbResults);
