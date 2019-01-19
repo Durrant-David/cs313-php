@@ -11,17 +11,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <?php 
-          function url(){
-                if(isset($_SERVER['HTTPS'])){
-                    $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
-                }
-                else{
-                    $protocol = 'http';
-                }
-                return $protocol . "://" . $_SERVER['HTTP_HOST'] . '/controller/menu.php';
-            }
-          //$url = url();
-          //echo $url;
           include 'controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
