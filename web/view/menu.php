@@ -22,7 +22,7 @@
             }
           $url = url();
           //echo $url;
-          include $url;
+          include '/controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
           //var_dump($dbResults);
