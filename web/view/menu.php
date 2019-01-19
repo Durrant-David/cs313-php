@@ -21,7 +21,7 @@
                 return $protocol . "://" . $_SERVER['HTTP_HOST'] . '/controller/menu.php';
             }
           $url = url();
-          echo $url;
+          //echo $url;
           include $url;
           $items = getMenuItems();
           $itemCount = count($items);
