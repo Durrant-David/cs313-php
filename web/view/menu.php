@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav">
         <?php 
           echo $_SERVER['SERVER_NAME'] . 'controller/menu.php';
-          include $_SERVER['SERVER_NAME'] . 'controller/menu.php';
+          include $_SERVER['SERVER_NAME'] . '/controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
           //var_dump($dbResults);
