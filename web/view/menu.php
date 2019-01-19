@@ -20,8 +20,8 @@
                 }
                 return $protocol . "://" . $_SERVER['HTTP_HOST'] . '/controller/menu.php';
           }
-          //$url = url();
-          include 'controller/menu.php';
+          include url();
+          //include 'controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
           //var_dump($dbResults);
