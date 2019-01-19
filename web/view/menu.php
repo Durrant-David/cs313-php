@@ -20,7 +20,9 @@
                 }
                 return $protocol . "://" . $_SERVER['HTTP_HOST'] . '/controller/menu.php';
           }
-          include include $_SERVER . '/controller/menu.php';
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/controller/menu.php";
+          include_once($path);
           //include 'controller/menu.php';
           $items = getMenuItems();
           $itemCount = count($items);
