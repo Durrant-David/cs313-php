@@ -14,6 +14,7 @@
 <body>
     <?php 
           $path = $_SERVER['DOCUMENT_ROOT'];
+    echo $path;
           $path .= "/view/menu.php";
           include_once($path); ?>
     <div class="bgMtn1 mrgn">
