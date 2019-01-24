@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav">
         <?php 
           $path = $_SERVER['DOCUMENT_ROOT'];
-          $path .= "/controller/menu.php";
+          $path .= "/model/menu.php";
           include_once($path);
           $items = getMenuItems();
           $itemCount = count($items);
