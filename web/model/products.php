@@ -1,14 +1,15 @@
 <?php
-function getMenuItems() {
+function getProducts() {
     include 'connection.php';
-    $query = "SELECT * FROM menu ORDER BY id ASC";   
+    $query = "SELECT * FROM products";   
     $result = pg_exec($db_connection, $query);   
     if ($result) {              
         for ($row = 0; $row < pg_numrows($result); $row++) { 
             $array["id"] = pg_result($result, $row, 'id');
-            $array["title"] = pg_result($result, $row, 'title');        
-            $array["link"] = pg_result($result, $row, 'link');        
-            $array["parent"] = pg_result($result, $row, 'parent_menu');        
+            $array["product"] = pg_result($result, $row, 'product');        
+            $array["quantity"] = pg_result($result, $row, 'quantity');        
+            $array["img"] = pg_result($result, $row, 'img');          
+            $array["price"] = pg_result($result, $row, 'price');        
             $dbResults[] = $array;
         }        
 //    var_dump($array);

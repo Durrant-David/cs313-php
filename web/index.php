@@ -13,10 +13,18 @@
 
 <body>
     <?php 
-          $path = $_SERVER['DOCUMENT_ROOT'];
-    echo $path;
-          $path .= "/view/menu.php";
-          include_once($path); ?>
+    //check if localhost
+    if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||
+         $_SERVER["SERVER_ADDR"] == '::1') {
+        $localHost = "/web";
+    } else {
+        $localHost = "";
+    }
+    //get root directory
+    $root = $_SERVER['DOCUMENT_ROOT'] . $localHost;
+    //include main menu
+    include_once($root . "/view/menu.php"); 
+    ?>
     <div class="bgMtn1 mrgn">
         <div class="media">
             <div class="spacer-top-img"></div>
@@ -24,13 +32,13 @@
                 <p class="text-center txt-styling-img">My Interests include hiking the various mountains native to Utah. </p>
             </div>
             <div class="media-right">
-                <img src="media/images/profile.jpg" class="img-circle size-img-small" alt="David Durrant">
+                <img src="<?php echo $localHost; ?>/media/images/profile.jpg" class="img-circle size-img-small" alt="David Durrant">
             </div>
         </div>
     </div>
     <div class="row container">
         <div class="col-sm-6 text-center">
-            <img src="media/images/vivoactive_hr.jpg" class="size-img-large responsive" alt="vivoactive watch">
+            <img src="<?php echo $localHost; ?>/media/images/vivoactive_hr.jpg" class="size-img-large responsive" alt="vivoactive watch">
         </div>
         <div class="col-sm-4 item">
             <div class="spacer-top-img hidden-xs"></div>
@@ -52,7 +60,7 @@
             <p class="txt-styling">My friends have nicknamed me Mountain goat</p>
         </div>
         <div class="col-sm-6">
-            <img src="media/images/mountain_goat.jpg" class="size-img-large img-circle" alt="vivoactive watch">
+            <img src="<?php echo $localHost; ?>/media/images/mountain_goat.jpg" class="size-img-large img-circle" alt="vivoactive watch">
         </div>
     </div>
 </body>
