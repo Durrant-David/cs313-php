@@ -30,7 +30,7 @@
     $products = getProducts();
     $productCount = count($products);
     //var_dump($products);
-    echo "Favorite animal is " . $_SESSION["product-4"] . ".";
+    echo "Favorite animal is " . $_SESSION["product"] . ".";
     ?>
     <div class="container">
         <h2>Shopping Cart</h2>

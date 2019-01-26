@@ -1,3 +1,4 @@
 function addToCart(id, quantity) {
-    sessionStorage.setItem("product-" + id, quantity);
+    sessionStorage.setItem("product", quantity);
+//    product-" + id
 }
