@@ -9,7 +9,8 @@ function getProducts() {
             $array["product"] = pg_result($result, $row, 'product');        
             $array["quantity"] = pg_result($result, $row, 'quantity');        
             $array["img"] = pg_result($result, $row, 'img');          
-            $array["price"] = pg_result($result, $row, 'price');        
+            $array["price"] = pg_result($result, $row, 'price');      
+            $array["description"] = pg_result($result, $row, 'description');        
             $dbResults[] = $array;
         }        
 //    var_dump($array);

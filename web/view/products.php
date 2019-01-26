@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>David Durrant</title>
+    <title>Products</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/products.css">
@@ -29,12 +29,6 @@
     $products = getProducts();
     $productCount = count($products);
     //var_dump($products);
-//                foreach ($items as $item) {
-//                    if($item["parent"] == 0){
-//                        $noSubItem = true;
-//                        foreach ($items as $subitem) {
-//                            if($subitem["parent"] == $item["id"]){
-//                                if($noSubItem == true) {
     ?>
     <section class="block">
         <div id="productCarousel" class="carousel slide">
@@ -81,12 +75,12 @@
             <div class="row row-centered" >
             <?php } ?>
                 <div class="col-sm-6 col-img">
-                    <img class="img-product" src="<?php echo $localHost . $product['img']; ?>">
+                    <img id="product-<?php echo $product["id"]; ?>" class="img-product" src="<?php echo $localHost . $product['img']; ?>">
                     <div class="img-cart">
-                        <button class="btn-cart">Add to cart</button>
+                        <button class="btn-cart" onclick="addToCart(<?php echo $product["id"]; ?>, 1)">Add to cart</button>
                     </div>
                     <div class="img-info">
-                        <button class="btn-info">More info</button>
+                        <button class="btn-info" data-toggle="modal" data-target="#productInfo-<?php echo $product["id"]; ?>">More info</button>
                     </div>
                 </div>
             <?php if($i%2 == 1) { ?>
@@ -95,6 +89,8 @@
             $i++;
         } ?>
     </div>
+    <script src="<?php echo $root; ?>/controller/addProduct.js"></script>
+    <?php include_once("product.php"); ?>
 </body>
 
 </html>

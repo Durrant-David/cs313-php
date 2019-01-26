@@ -26,11 +26,11 @@
   opacity: 0.3;
 }
 
-.container:hover .img-cart {
+.col-img:hover .img-cart {
   opacity: 1;
 }
 
-.container:hover .img-info {
+.col-img:hover .img-info {
   opacity: 1;
 }
 
@@ -76,4 +76,10 @@
   color: white;
   font-size: 16px;
   padding: 16px 32px;
+}
+
+/* product styles */
+.modal-body img {
+    float: left;
+    margin: 10px;
 }
