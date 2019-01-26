@@ -67,34 +67,27 @@
             </a>
         </div>
     </section>
-    <!--<script src="<?php /*echo $root;*/ ?>/controller/addProduct.js">-->
-    <script>
-        function addToCart(id, quantity = 1) {
-            sessionStorage.setItem("product", quantity);
-            alert(sessionStorage.getItem("product"));
-//    product-" + id
-        
-        }
-</script>
+    <?php include_once($root . "/controller/addToCart.php"); ?>
     <div class="container products">
         <?php 
         $i = 0;
         foreach($products as $product) { 
             if($i%2 == 0) { ?>
-            <div class="row row-centered" >
+        <div class="row row-centered">
             <?php } ?>
-                <div class="col-sm-6 col-img">
-                    <img id="product-<?php echo $product["id"]; ?>" class="img-product" src="<?php echo $localHost . $product['img']; ?>">
-                    <div class="img-cart">
-                        <button class="btn-cart" onclick="addToCart(<?php echo $product["id"]; ?>, 1)">Add to cart</button>
-                    </div>
-                    <div class="img-info">
-                        <button class="btn-info" data-toggle="modal" data-target="#productInfo-<?php echo $product["id"]; ?>">More info</button>
-                    </div>
+            <div class="col-sm-6 col-img">
+                <img id="product-<?php echo $product["id"]; ?>" class="img-product" src="
+                <?php echo $localHost . $product['img']; ?>">
+                <div class="img-cart">
+                    <button class="btn-cart" onclick="addToCart(<?php echo $product["id"]; ?>, 1)">Add to cart</button>
                 </div>
-            <?php if($i%2 == 1) { ?>
+                <div class="img-info">
+                    <button class="btn-info" data-toggle="modal" data-target="#productInfo-<?php echo $product["id"]; ?>">More info</button>
+                </div>
             </div>
-            <?php } 
+            <?php if($i%2 == 1) { ?>
+        </div>
+        <?php } 
             $i++;
         } ?>
     </div>

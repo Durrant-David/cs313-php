@@ -50,9 +50,22 @@
                     }
                 }
                 ?>
-            </ul>                       
+            </ul>
+            <?php
+                include_once($root . "/model/products.php"); 
+                $product1s = getProducts();
+                $total1 = 0;
+                foreach($product1s as $product) {
+                    if (isset($_SESSION["product-" . $product["id"]])) {
+                        $quantity1 = (int)$_SESSION["product-" . $product["id"]];
+                        if ($quantity1 > 0) {
+                            $total1 += $quantity1;
+                        }
+                    }
+                }
+            ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo $localHost; ?>/view/shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="<?php echo $localHost; ?>/view/shoppingCart.php"><span class="badge"><?php echo $total1; ?></span><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
         </div>
     </div>

@@ -30,33 +30,44 @@
     $products = getProducts();
     $productCount = count($products);
     //var_dump($products);
-    echo "Favorite animal is " . $_SESSION["product"] . ".";
     ?>
     <div class="container">
         <h2>Shopping Cart</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $total = 0;
+                include_once($root . "/controller/addToCart.php");
+                foreach($products as $product) {
+                    if (isset($_SESSION["product-" . $product["id"]])) {
+                        $quantity = (int)$_SESSION["product-" . $product["id"]];
+                        if ($quantity > 0) {
+                            $total += $product['price'] * $quantity;
+                        ?>
                 <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
+                    <td><?php echo $product['product']; ?></td>
+                    <td><?php echo $product['price']; ?></td>
+                    <td><input type="number" oninput="addToCart(<?php echo $product["id"]; ?>, this.value); location.reload()" value="<?php echo $quantity; ?>"></td>
+                    <td><button type="button" class="btn btn-default btn-sm" onclick="addToCart(<?php echo $product["id"]; ?>, 0); location.reload()"><span class="glyphicon glyphicon-trash" ></span></button></td>
                 </tr>
+                <?php 
+                        }
+                    }
+                }
+                ?>
                 <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
+                    <td></td>
+                    <td><b>Total: </b><?php echo $total; ?></td>
+                    <td><button>Keep Shopping</button></td>
+                    <td><button>Check Out</button></td>
                 </tr>
             </tbody>
         </table>
