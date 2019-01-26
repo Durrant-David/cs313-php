@@ -52,7 +52,7 @@
                 ?>
             </ul>                       
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="<?php echo $localHost; ?>/view/shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
         </div>
     </div>
