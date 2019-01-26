@@ -67,6 +67,15 @@
             </a>
         </div>
     </section>
+    <!--<script src="<?php /*echo $root;*/ ?>/controller/addProduct.js">-->
+    <script>
+        function addToCart(id, quantity = 1) {
+            sessionStorage.setItem("product", quantity);
+            alert(sessionStorage.getItem("product"));
+//    product-" + id
+        
+        }
+</script>
     <div class="container products">
         <?php 
         $i = 0;
@@ -89,7 +98,6 @@
             $i++;
         } ?>
     </div>
-    <script src="<?php echo $root; ?>/controller/addProduct.js"></script>
     <?php include_once("product.php"); ?>
 </body>
 
