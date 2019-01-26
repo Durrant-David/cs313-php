@@ -72,6 +72,7 @@
         <?php 
         $i = 0;
         foreach($products as $product) { 
+            //display two per row
             if($i%2 == 0) { ?>
         <div class="row row-centered">
             <?php } ?>
@@ -79,7 +80,26 @@
                 <img id="product-<?php echo $product["id"]; ?>" class="img-product" src="
                 <?php echo $localHost . $product['img']; ?>">
                 <div class="img-cart">
-                    <button class="btn-cart" onclick="addToCart(<?php echo $product["id"]; ?>, 1)">Add to cart</button>
+                    <button class="btn-cart" 
+                            onclick="
+                            <?php //if item in cart and greater then 1, don't add to cart
+                                  if(isset($_SESSION["product-" . $product["id"]])) { 
+                                    if ((int)$_SESSION["product-" . $product["id"]] > 1 ) {
+                                        
+                                    } else {
+                                    ?>
+                                     addToCart(
+                                     <?php echo $product["id"]; ?>, 1); 
+                                     location.reload()
+                                     <?php
+                                    }
+                                  } else {
+                                  ?>
+                                     addToCart(
+                                     <?php echo $product["id"]; ?>, 1); 
+                                     location.reload()
+                            <?php } ?>
+                            ">Add to cart</button>
                 </div>
                 <div class="img-info">
                     <button class="btn-info" data-toggle="modal" data-target="#productInfo-<?php echo $product["id"]; ?>">More info</button>

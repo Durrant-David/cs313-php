@@ -52,6 +52,9 @@
                 ?>
             </ul>
             <?php
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
                 include_once($root . "/model/products.php"); 
                 $product1s = getProducts();
                 $total1 = 0;

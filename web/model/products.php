@@ -23,4 +23,13 @@ function getProducts() {
     
     return $dbResults;
 }
+
+function updateProduct($data, $cond) {
+    include 'connection.php';
+    $res = pg_update($db_connection, 'products', $data, $cond);
+    if (!$res) {
+        throw new Exception(DB_ERR . 'Update: ' . pg_last_error($this->conn));
+    }
+    return $res;
+}
 ?>

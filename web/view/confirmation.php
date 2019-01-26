@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Shopping Cart</title>
+    <title>Check Out</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/products.css">
@@ -33,53 +33,76 @@
     $productCount = count($products);
     //var_dump($products);
     ?>
+
     <div class="container">
-        <h2>Shopping Cart</h2>
+        <h2>Order was successful</h2>
+        <div>
+            <?php if(isset($_POST['fullname'])) {
+                    echo htmlspecialchars($_POST['fullname']);
+                }
+            ?>
+        </div>
+        <div>
+            <?php if(isset($_POST['address1'])) {
+                    echo htmlspecialchars($_POST['address1']);
+                }
+            
+             if(isset($_POST['address2'])) {
+                    echo htmlspecialchars(" " . $_POST['address2']);
+                }
+            ?>
+        </div>
+        <div>
+            <?php if(isset($_POST['city'])) {
+                    echo htmlspecialchars($_POST['city']);
+                }
+            
+             if(isset($_POST['state'])) {
+                    echo htmlspecialchars(" " . $_POST['state']);
+                }
+            
+             if(isset($_POST['zip'])) {
+                    echo htmlspecialchars(" " . $_POST['zip']);
+                }
+            ?>
+        </div>
+    </div>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $total = 0;
-                include_once($root . "/controller/addToCart.php");
                 foreach($products as $product) {
                     if (isset($_SESSION["product-" . $product["id"]])) {
-                        $quantity = (int)$_SESSION["product-" . $product["id"]];
+                        $quantity = htmlspecialchars((int)$_SESSION["product-" . $product["id"]]);
                         if ($quantity > 0) {
+                            $cond = array("id" => $product['id']);
+                            $data = array("quantity" => $product['quantity'] - $quantity);
+                            updateProduct($data, $cond);
                             $total += $product['price'] * $quantity;
                         ?>
                 <tr>
                     <td><?php echo $product['product']; ?></td>
                     <td><?php echo $product['price']; ?></td>
-                    <td><input type="number" oninput="addToCart(<?php echo $product["id"]; ?>, this.value); location.reload()" value="<?php echo $quantity; ?>"></td>
-                    <td><button type="button" class="btn btn-default btn-sm" onclick="addToCart(<?php echo $product["id"]; ?>, 0); location.reload()"><span class="glyphicon glyphicon-trash" ></span></button></td>
+                    <td><?php echo $quantity; ?></td>
                 </tr>
                 <?php 
                         }
                     }
                 }
+                //clear cart of purchased items
+                session_destroy(); 
                 ?>
                 <tr>
                     <td></td>
                     <td><b>Total: </b><?php echo $total; ?></td>
-                    <td>
-                        <a href="<?php echo $localHost; ?>/view/products.php">
-                            <button>Keep Shopping</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="<?php echo $localHost; ?>/view/checkout.php">
-                            <button>
-                                Check Out
-                            </button>
-                        </a>
-                    </td>
                 </tr>
             </tbody>
         </table>
