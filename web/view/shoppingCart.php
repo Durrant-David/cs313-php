@@ -57,12 +57,7 @@
                 <tr>
                     <style>
                         /*Make sure session data loads properly*/
-                        window.onload = function() {
-                            if(!window.location.hash) {
-                                window.location = window.location + '#loaded';
-                                window.location.reload();
-                            }
-                        }
+                        location.reload()
                     </style>
                     <td><?php echo $product['product']; ?></td>
                     <td><?php echo $product['price']; ?></td>
