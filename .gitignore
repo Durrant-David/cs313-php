@@ -1,2 +1,2 @@
 # Ignore database connection info
-/web/model/connection.php
+# /web/model/connection.php

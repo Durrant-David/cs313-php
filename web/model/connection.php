@@ -24,7 +24,7 @@ $dbName = ltrim($dbopts["path"],'/');
 print "<p>pgsql:host=$dbHost;port=$dbPort;dbname=$dbName</p>\n\n";
 
 try {
- $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+ $db_connection = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 }
 catch (PDOException $ex) {
  print "<p>error: $ex->getMessage() </p>\n\n";
