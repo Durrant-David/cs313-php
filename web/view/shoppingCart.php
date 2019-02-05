@@ -55,6 +55,10 @@
                             $total += $product['price'] * $quantity;
                         ?>
                 <tr>
+                    <style>
+                        /*Make sure session data loads properly*/
+                        location.reload()
+                    </style>
                     <td><?php echo $product['product']; ?></td>
                     <td><?php echo $product['price']; ?></td>
                     <td><input type="number" oninput="addToCart(<?php echo $product["id"]; ?>, this.value); location.reload()" value="<?php echo $quantity; ?>"></td>
