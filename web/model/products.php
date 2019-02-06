@@ -1,16 +1,16 @@
 <?php
 function getProducts() {
     include 'connection.php';
-    $query = "SELECT * FROM products";   
-    $result = pg_exec($db_connection, $query);   
+    $result = $db->query("SELECT * FROM products");   
+    //$result = pg_exec($db_connection, $query);   
     if ($result) {              
-        for ($row = 0; $row < pg_numrows($result); $row++) { 
-            $array["id"] = pg_result($result, $row, 'id');
-            $array["product"] = pg_result($result, $row, 'product');        
-            $array["quantity"] = pg_result($result, $row, 'quantity');        
-            $array["img"] = pg_result($result, $row, 'img');          
-            $array["price"] = pg_result($result, $row, 'price');      
-            $array["description"] = pg_result($result, $row, 'description');        
+        foreach($result->fetchAll() as $row) { 
+            $array["id"] = $row['id'];
+            $array["product"] = $row['product'];        
+            $array["quantity"] = $row['quantity'];        
+            $array["img"] = $row['img'];          
+            $array["price"] = $row['price'];      
+            $array["description"] = $row['description'];        
             $dbResults[] = $array;
         }        
 //    var_dump($array);
