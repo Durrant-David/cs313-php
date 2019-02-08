@@ -11,17 +11,10 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <?php 
-                //check if localhost
-                if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||
-                    $_SERVER["SERVER_ADDR"] == '::1') {
-                    $localHost = "/web";
-                } else {
-                    $localHost = "";
-                }
                 //get root directory
-                $root = $_SERVER['DOCUMENT_ROOT'] . $localHost;
+                $root = $_SERVER['DOCUMENT_ROOT'];
                 //include main menu
-                include_once($root . "/model/menu.php"); 
+                include_once($root . "/Models/menu.php"); 
                 $items = getMenuItems();
                 $itemCount = count($items);
                 //var_dump($dbResults);
@@ -39,11 +32,11 @@
                                             <?php
                                             $noSubItem = false;
                                 }
-                                echo '<li><a href="' . $localHost . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
+                                echo '<li><a href="' . $subitem["link"] .'">' . $subitem["title"] . '</a></li>';
                             }
                         }
                         if($noSubItem == true){
-                            echo '<li><a href="' . $GLOBALS['localHost'] . $item["link"] .'">' . $item["title"] . '</a></li>';
+                            echo '<li><a href="' . $item["link"] .'">' . $item["title"] . '</a></li>';
                         } else {
                             echo '</ul></li>';
                         }
@@ -55,7 +48,7 @@
                 if (session_status() == PHP_SESSION_NONE) {
                     session_start();
                 }
-                include_once($root . "/model/products.php"); 
+                include_once($root . "/Models/products.php"); 
                 $product1s = getProducts();
                 $total1 = 0;
                 foreach($product1s as $product) {
@@ -68,7 +61,7 @@
                 }
             ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo $localHost; ?>/view/shoppingCart.php"><span class="badge"><?php echo $total1; ?></span><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="/view/shoppingCart.php"><span class="badge"><?php echo $total1; ?></span><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
         </div>
     </div>

@@ -13,19 +13,12 @@
 
 <body>
     <?php 
-    //check if localhost
-    if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||
-         $_SERVER["SERVER_ADDR"] == '::1') {
-        $localHost = "/web";
-    } else {
-        $localHost = "";
-    }
     //get root directory
-    $root = $_SERVER['DOCUMENT_ROOT'] . $localHost;
+    $root = $_SERVER['DOCUMENT_ROOT'];
     //include main menu
-    include_once($root . "/view/menu.php"); 
+    include_once($root . "/Views/menu.php"); 
     //include products from database
-    include_once($root . "/model/products.php"); 
+    include_once($root . "/Models/products.php"); 
     $products = getProducts();
     $productCount = count($products);
     //var_dump($products);
@@ -43,16 +36,16 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="active item">
-                    <img src="<?php echo $localHost; ?>/media/images/products/Banner_LOTR_logo.jpg" alt="Lord of the Rings" style="width:100%;">
+                    <img src="/media/images/products/Banner_LOTR_logo.jpg" alt="Lord of the Rings" style="width:100%;">
                 </div>
                 <div class="item">
-                    <img src="<?php echo $localHost; ?>/media/images/products/lesmisbanner.jpg" alt="Les Miserables" style="width:100%;">
+                    <img src="/media/images/products/lesmisbanner.jpg" alt="Les Miserables" style="width:100%;">
                 </div>
                 <div class="item">
-                    <img src="<?php echo $localHost; ?>/media/images/products/narnia-banner_orig.jpg" alt="Narnia" style="width:100%;">
+                    <img src="/media/images/products/narnia-banner_orig.jpg" alt="Narnia" style="width:100%;">
                 </div>
                 <div class="item">
-                    <img src="<?php echo $localHost; ?>/media/images/products/way-of-kings-banner.jpg" alt="Narnia" style="width:100%;">
+                    <img src="/media/images/products/way-of-kings-banner.jpg" alt="Narnia" style="width:100%;">
                 </div>
             </div>
 
@@ -67,7 +60,7 @@
             </a>
         </div>
     </section>
-    <?php include_once($root . "/controller/addToCart.php"); ?>
+    <?php include_once($root . "/Controllers/addToCart.php"); ?>
     <div class="container products">
         <?php 
         $i = 0;
@@ -78,7 +71,7 @@
             <?php } ?>
             <div class="col-sm-6 col-img">
                 <img id="product-<?php echo $product["id"]; ?>" class="img-product" src="
-                <?php echo $localHost . $product['img']; ?>">
+                <?php echo $product['img']; ?>">
                 <div class="img-cart">
                     <button class="btn-cart" 
                             onclick="

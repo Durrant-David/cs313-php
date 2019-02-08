@@ -1,16 +1,9 @@
 <div class="container">
     <?php
-    //check if localhost
-    if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||
-         $_SERVER["SERVER_ADDR"] == '::1') {
-        $localHost = "/web";
-    } else {
-        $localHost = "";
-    }
     //get root directory
-    $root = $_SERVER['DOCUMENT_ROOT'] . $localHost;
+    $root = $_SERVER['DOCUMENT_ROOT'];
     
-    include_once($root . "/model/products.php"); 
+    include_once($root . "/Models/products.php"); 
     $products = getProducts();
     
     foreach($products as $product) {
@@ -28,7 +21,7 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <img src="<?php echo $localHost . $product['img']; ?>">
+                    <img src="<?php echo $product['img']; ?>">
                     <p><?php echo $product["description"]; ?></p>
                     <div>Price: <?php echo $product["price"]; ?></div>
                     <div>In Stock: <?php echo $product["quantity"]; ?></div>

@@ -1,68 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    define( '_CSEXEC', 1 );
+    $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
-<head>
-    <title>David Durrant</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <?php 
-    //check if localhost
-    if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||
-         $_SERVER["SERVER_ADDR"] == '::1') {
-        $localHost = "/web";
-    } else {
-        $localHost = "";
-    }
     //get root directory
-    $root = $_SERVER['DOCUMENT_ROOT'] . $localHost;
-    //include main menu
-    include_once($root . "/view/menu.php"); 
-    ?>
-    <div class="bgMtn1 mrgn">
-        <div class="media">
-            <div class="spacer-top-img"></div>
-            <div class="media-body">
-                <p class="text-center txt-styling-img">My Interests include hiking the various mountains native to Utah. </p>
-            </div>
-            <div class="media-right">
-                <img src="<?php echo $localHost; ?>/media/images/profile.jpg" class="img-circle size-img-small" alt="David Durrant">
-            </div>
-        </div>
-    </div>
-    <div class="row container">
-        <div class="col-sm-6 text-center">
-            <img src="<?php echo $localHost; ?>/media/images/vivoactive_hr.jpg" class="size-img-large responsive" alt="vivoactive watch">
-        </div>
-        <div class="col-sm-4 item">
-            <div class="spacer-top-img hidden-xs"></div>
-            <p class="txt-styling">I use a GPS watch to track my adventures!</p>
-        </div>
-        <div class="col-sm-2">
-        </div>
-    </div>
-    <div class="row bgMtn2 mrgn">
-        <div class="col-sm-12">
-            <p class="text-center txt-styling-img spacer-top-img">Included are some pictures I have taking on some of my hikes.</p>
-        </div>
-    </div>
-    <div class="row container mrgn">
-        <div class="col-sm-2">
-        </div>
-        <div class="col-sm-4 item">
-            <div class="spacer-top-img hidden-xs"></div>
-            <p class="txt-styling">My friends have nicknamed me Mountain goat</p>
-        </div>
-        <div class="col-sm-6">
-            <img src="<?php echo $localHost; ?>/media/images/mountain_goat.jpg" class="size-img-large img-circle" alt="vivoactive watch">
-        </div>
-    </div>
-</body>
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    //connect to database
+    require_once "$root/Models/connection.php";
 
-</html>
+    if ($url == '/')
+    {
+
+        // This is the home page
+        // Initiate the home controller
+        // and render the home view
+
+        //include main menu
+        //require_once $root . '/Models/index_model.php';
+        //require_once $root . '/Controllers/index_controller.php';
+        require_once $root . '/Views/index.php'; 
+
+        //$indexModel = New IndexModel();
+        //$indexController = New IndexController($indexModel);
+        //$indexView = New IndexView($indexController, $indexModel);
+
+        //print $indexView->index();
+
+    }else{
+
+
+        // This is not home page
+        // Initiate the appropriate controller
+        // and render the required view
+
+        //The first element should be a controller
+        $requestedController = $url[0]; 
+
+        // If a second part is added in the URI, 
+        // it should be a method
+        $requestedAction = isset($url[1])? $url[1] :'';
+
+        // The remain parts are considered as 
+        // arguments of the method
+        $requestedParams = array_slice($url, 2); 
+
+        // Check if controller exists. NB: 
+        // You have to do that for the model and the view too
+        $ctrlPath = $root .'/Controllers/'.$requestedController.'.php';
+
+        // Base structure of website
+        ?>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <title><?php echo ucfirst($requestedController); ?></title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="styles/products.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </head>
+
+        <body>
+        <?php
+        require_once $root .'/Models/mainMenu.php';
+        require_once $root .'/Controllers/mainMenu.php';
+        require_once $root .'/Views/mainMenu.php';
+        
+        $menuController = new MainMenuController( new MainMenuModel );
+        $menuObj = new MainMenuView( $menuController, new MainMenuModel);
+        
+        print $menuObj->navbar();
+
+        if (file_exists($ctrlPath))
+        {
+
+            require_once "$root/Models/$requestedController.php";
+            require_once "$root/Controllers/$requestedController.php";
+            require_once "$root/Views/$requestedController/$requestedController.php";
+
+            $modelName      = ucfirst($requestedController).'Model';
+            $controllerName = ucfirst($requestedController).'Controller';
+            $viewName       = ucfirst($requestedController).'View';
+
+            $controllerObj  = new $controllerName( new $modelName );
+            $viewObj        = new $viewName( $controllerObj, new $modelName );
+
+
+            // If there is a method - Second parameter
+            if ($requestedAction != '')
+            {
+                // then we call the method via the view
+                // dynamic call of the view
+                print $viewObj->$requestedAction($requestedParams);
+            }
+
+        }else{
+
+            header('HTTP/1.1 404 Not Found');
+            die('404 - The file - '.$ctrlPath.' - not found');
+            //require the 404 controller and initiate it
+            //Display its view
+        }
+        ?>
+        </body>
+        </html>
+        <?php
+    }
+?>

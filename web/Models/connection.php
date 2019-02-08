@@ -6,14 +6,7 @@
 // default Heroku Postgres configuration URL
 $dbUrl = getenv('DATABASE_URL');
 
-if (empty($dbUrl)) {
- // example localhost configuration URL with postgres username and a database called cs313db
- $dbUrl = "postgres://yeviieqbnducom:cc35265ef770f913fd0ff27a97e613d7d83e75c124786ead7bdac56272a41936@ec2-54-235-77-0.compute-1.amazonaws.com:5432/dfnsbg9852d9sd";
-}
-
 $dbopts = parse_url($dbUrl);
-
-//print "<p>$dbUrl</p>\n\n";
 
 $dbHost = $dbopts["host"];
 $dbPort = $dbopts["port"];
