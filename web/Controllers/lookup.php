@@ -22,7 +22,7 @@ defined('_CSEXEC') or die;
                   <td><?php echo $item['catwalk']; ?></td>
                   <td><?php echo $item['number']; ?></td>
                   <td><?php echo $this->activeIcon($item['status']); ?>
-                    <i class="far fa-edit"></i></td>
+                    <i class="far fa-edit listIcon"></i></td>
                 </tr>  
                 <?php
             }
@@ -44,10 +44,10 @@ defined('_CSEXEC') or die;
                     $tag = "black";
                     break;
             }
-            $icon = '<i class="fas fa-lightbulb" style="color:' 
+            $icon = '<i class="fas fa-lightbulb listIcon" style="color:' 
                 . $bulb . 
                 ';"></i>
-                    <i class="fas fa-tag" style="color:' 
+                    <i class="fas fa-tag listIcon" style="color:' 
                 . $tag . 
                 ';"></i>';
             

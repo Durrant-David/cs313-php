@@ -1,9 +1,10 @@
 <?php defined('_CSEXEC') or die; ?>
 <style>
-    i {
+    .listIcon {
         color: black;
-        font-size: 32px;
+        font-size: 26px;
         text-shadow:2px 2px 4px #000000;
+        padding: 4px;
     }
 </style>
 <div class="container">

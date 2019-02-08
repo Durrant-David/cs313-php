@@ -18,13 +18,11 @@ defined('_CSEXEC') or die;
         public function list()
         {
             include_once $GLOBALS['root'] . '/Views/lookup/list.php';
-            //return $this->controller->sayWelcome();
         }
 
         public function filters()
         {
             include_once $GLOBALS['root'] . '/Views/lookup/filters.php';
-            //return $this->controller->sayWelcome();
         }
 
         public function index()
