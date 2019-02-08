@@ -21,75 +21,108 @@ defined('_CSEXEC') or die;
                   <td><?php echo $item['level']; ?></td>
                   <td><?php echo $item['catwalk']; ?></td>
                   <td><?php echo $item['number']; ?></td>
-                  <td><?php echo $item['status']; ?></td>
+                  <td><?php echo $this->activeIcon($item['status']); ?>
+                    <i class="far fa-edit"></i></td>
                 </tr>  
                 <?php
             }
         }
         
+        public function activeIcon($active) 
+        {
+            switch ($active) {
+                case "Red Tag":
+                    $bulb = "black";
+                    $tag = "red";
+                    break;
+                case "Burn Out":
+                    $bulb = "black";
+                    $tag = "black";
+                    break;
+                default:
+                    $bulb = "yellow";
+                    $tag = "black";
+                    break;
+            }
+            $icon = '<i class="fas fa-lightbulb" style="color:' 
+                . $bulb . 
+                ';"></i>
+                    <i class="fas fa-tag" style="color:' 
+                . $tag . 
+                ';"></i>';
+            
+            return $icon;
+        }
+        
         public function sortColumns()
         {
-            
+            //TODO sort columns when selected
         }
 
-        public function displayTypes()
+        public function displayDropDown($filter)
         {
-            $items = $this->model->getTypeItems();
-            echo '<option>Type</option>';
+            $items = $this->model->getFilterItems($filter);
+            echo '<option value="' . $filter . '">' . $filter . '</option>';
             foreach ($items as $item)
             {
-                echo '<option>' . $item['name'] . '</option>';
+                echo '<option value="' . $item['name'] . '">' . $item['name'] . '</option>';
             }
         }
 
-        public function displayLevels()
-        {
-            $items = $this->model->getLevelItems();
-            echo '<option>Level</option>';
-            foreach ($items as $item)
-            {
-                echo '<option>' . $item['name'] . '</option>';
-            }
-        }
-
-        public function displayCatwalks()
-        {
-            $items = $this->model->getCatwalkItems();
-            echo '<option>Catwalk</option>';
-            foreach ($items as $item)
-            {
-                echo '<option>' . $item['name'] . '</option>';
-            }
-        }
-
-        public function displayChairs()
-        {
-            $items = $this->model->getChairItems();
-            echo '<option>Chair</option>';
-            foreach ($items as $item)
-            {
-                echo '<option>' . $item['name'] . '</option>';
-            }
-        }
-
-        public function displayPositions()
-        {
-            $items = $this->model->getPositionItems();
-            echo '<option>Position</option>';
-            foreach ($items as $item)
-            {
-                echo '<option>' . $item['name'] . '</option>';
-            }
-        }
-
-        public function displayStatus()
+        public function displayStatusList()
         {
             $items = $this->model->getStatusItems();
-            echo '<option>Status</option>';
+            echo '<option value="Status">Status</option>';
             foreach ($items as $item)
             {
-                echo '<option>' . $item['name'] . '</option>';
+                echo '<option value="' . $item['name'] . '">' . $item['name'] . '</option>';
             }
+        }
+        
+        public function selectedFuncJS()
+        {
+            ?>
+            <script>
+            function setSelectedIndex(s, v) {
+
+                for (var i = 0; i < s.options.length; i++) {
+
+                    if (s.options[i].text == v) {
+
+                        s.options[i].selected = true;
+
+                        return;
+
+                    }
+
+                }
+
+            }
+            </script>
+            <?php
+        }
+        public function setSelectedJS($filter)
+        {
+            $filters = $this->getFilters();
+            $sel = $filter . 'Select';
+            ?>
+            <script>
+                setSelectedIndex(document.getElementById('<?php echo $sel; ?>'),"<?php echo $filters[$filter]; ?>");
+            </script>
+            <?php
+        }
+        
+        public function getFilters() 
+        {
+            // assign get values if they have them
+            $filters["type"] = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
+            $filters["level"] = isset($_GET['level']) ? htmlspecialchars($_GET['level']) : '';
+            $filters["catwalk"] = isset($_GET['catwalk']) ? htmlspecialchars($_GET['catwalk']) : '';
+            $filters["chair"] = isset($_GET['chair']) ? htmlspecialchars($_GET['chair']) : '';
+            $filters["position"] = isset($_GET['position']) ? htmlspecialchars($_GET['position']) : '';
+            $filters["status"] = isset($_GET['status']) ? htmlspecialchars($_GET['status']) : '';
+            
+            return $filters;
         }
         
         public function filters()
@@ -97,105 +130,100 @@ defined('_CSEXEC') or die;
             // start with empty value
             $query = "";
             
-            // assign get values if they have them
-            $filterType = isset($_GET['type']) ? $_GET['type'] : '';
-            $filterLevel = isset($_GET['level']) ? $_GET['level'] : '';
-            $filterCatwalk = isset($_GET['catwalk']) ? $_GET['catwalk'] : '';
-            $filterChair = isset($_GET['chair']) ? $_GET['chair'] : '';
-            $filterPosition = isset($_GET['position']) ? $_GET['position'] : '';
-            $filterStatus = isset($_GET['status']) ? $_GET['status'] : '';
+            $filters = $this->getFilters();
             
             // check if dropdown list title was selected
-            if( $filterType == "Type") { $filterType = ''; }
-            if( $filterLevel == "Level") { $filterLevel = ''; }
-            if( $filterCatwalk == "Catwalk") { $filterCatwalk = ''; }
-            if( $filterChair == "Chair") { $filterChair = ''; }
-            if( $filterPosition == "Position") { $filterPosition = ''; }
-            if( $filterStatus == "Status") { $filterStatus = ''; }
+            if( $filters["type"] == "Type") { $filters["type"] = ''; }
+            if( $filters["level"] == "Level") { $filters["level"] = ''; }
+            if( $filters["catwalk"] == "Catwalk") { $filters["catwalk"] = ''; }
+            if( $filters["chair"] == "Chair") { $filters["chair"] = ''; }
+            if( $filters["position"] == "Position") { $filters["position"] = ''; }
+            if( $filters["status"] == "Status") { $filters["status"] = ''; }
             
             /*
             * START filter conditions for every posible combination
             */
-            if( !empty($filterType) || 
-                !empty($filterLevel) ||
-                !empty($filterCatwalk) ||
-                !empty($filterChair) ||
-                !empty($filterPosition) ||
-                !empty($filterStatus)) {
+            if( !empty($filters["type"]) || 
+                !empty($filters["level"]) ||
+                !empty($filters["catwalk"]) ||
+                !empty($filters["chair"]) ||
+                !empty($filters["position"]) ||
+                !empty($filters["status"])) {
 
                     $query .= " WHERE";
 
             }
 
-            if( !empty($filterType)) {
-                    $query .= " ty.name='$filterType'";
+            if( !empty($filters["type"])) {
+                    $query .= " ty.name='" . $filters["type"] . "'";
             }
 
 
-            if( !empty($filterType) && 
-                !empty($filterLevel)) {
+            if( !empty($filters["type"]) && 
+                !empty($filters["level"])) {
                     $query .= " AND";
             }
 
-            if( !empty($filterLevel)) {
-                    $query .= " le.name='$filterLevel'";
+            if( !empty($filters["level"])) {
+                    $query .= " le.name='" . $filters["level"] . "'";
             }
 
-            if( (!empty($filterType) && 
-                !empty($filterCatwalk)) ||
-                (!empty($filterLevel) &&
-                !empty($filterCatwalk))) {
+            if( (!empty($filters["type"]) && 
+                !empty($filters["catwalk"])) ||
+                (!empty($filters["level"]) &&
+                !empty($filters["catwalk"]))) {
                     $query .= " AND";
             }
 
-            if( !empty($filterCatwalk)) {
-                    $query .= " cat.name='$filterCatwalk'";
+            if( !empty($filters["catwalk"])) {
+                    $query .= " cat.name='" . $filters["catwalk"] . "'";
             }
 
-            if( (!empty($filterType) && 
-                !empty($filterChair)) ||
-                (!empty($filterLevel) &&
-                !empty($filterChair)) ||
-                (!empty($filterCatwalk) &&
-                !empty($filterChair))) {
+            if( (!empty($filters["type"]) && 
+                !empty($filters["chair"])) ||
+                (!empty($filters["level"]) &&
+                !empty($filters["chair"])) ||
+                (!empty($filters["catwalk"]) &&
+                !empty($filters["chair"]))) {
                     $query .= " AND";
             }
-            if( !empty($filterChair)) {
-                    $query .= " ch.name='$filterChair'";
+            if( !empty($filters["chair"])) {
+                    $query .= " ch.name='" . $filters["chair"] . "'";
             }
 
-            if( (!empty($filterType) && 
-                !empty($filterPosition)) ||
-                (!empty($filterLevel) &&
-                !empty($filterPosition)) ||
-                (!empty($filterCatwalk) &&
-                !empty($filterPosition)) ||
-                (!empty($filterChair) &&
-                !empty($filterPosition))) {
-                    $query .= " AND";
-            }
-
-            if( !empty($filterPosition)) {
-                    $query .= " pos.name='$filterPosition'";
-            }
-
-
-            if( (!empty($filterType) && 
-                !empty($filterStatus)) ||
-                (!empty($filterLevel) &&
-                !empty($filterStatus)) ||
-                (!empty($filterCatwalk) &&
-                !empty($filterStatus)) ||
-                (!empty($filterChair) &&
-                !empty($filterStatus)) ||
-                (!empty($filterPosition) &&
-                !empty($filterStatus))) {
+            if( (!empty($filters["type"]) && 
+                !empty($filters["position"])) ||
+                (!empty($filters["level"]) &&
+                !empty($filters["position"])) ||
+                (!empty($filters["catwalk"]) &&
+                !empty($filters["position"])) ||
+                (!empty($filters["chair"]) &&
+                !empty($filters["position"]))) {
                     $query .= " AND";
             }
 
-            if( !empty($filterStatus)) {
-                    $query .= " s.name='$filterStatus'";
+            if( !empty($filters["position"])) {
+                    $query .= " pos.name='" . $filters["position"] . "'";
             }
+
+
+            if( (!empty($filters["type"]) && 
+                !empty($filters["status"])) ||
+                (!empty($filters["level"]) &&
+                !empty($filters["status"])) ||
+                (!empty($filters["catwalk"]) &&
+                !empty($filters["status"])) ||
+                (!empty($filters["chair"]) &&
+                !empty($filters["status"])) ||
+                (!empty($filters["position"]) &&
+                !empty($filters["status"]))) {
+                    $query .= " AND";
+            }
+
+            if( !empty($filters["status"])) {
+                    $query .= " s.name='" . $filters["status"] . "'";
+            }
+            /* END */
             
             // return the string for filtering
             return $query;

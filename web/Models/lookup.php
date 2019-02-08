@@ -10,8 +10,8 @@ defined('_CSEXEC') or die;
 
         }
 
-        public function getTypeItems() {
-            $result = $GLOBALS['db']->query("SELECT name FROM lookup_type");   
+        public function getFilterItems($filter) {
+            $result = $GLOBALS['db']->query('SELECT name FROM lookup_' . strtolower($filter));
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
@@ -24,50 +24,8 @@ defined('_CSEXEC') or die;
             return $dbResults;
         }
 
-        public function getLevelItems() {
-            $result = $GLOBALS['db']->query("SELECT name FROM lookup_level");   
-            $result->execute();
-            //$result = pg_exec($db_connection, $query);   
-            if ($result) {             
-                $dbResults = $result;
-            } else {        
-                echo "The query failed with the following error:<br>n";        
-                echo pg_errormessage($db_handle);        
-            }    
-
-            return $dbResults;
-        }
-
-        public function getCatwalkItems() {
-            $result = $GLOBALS['db']->query("SELECT name FROM lookup_catwalk");   
-            $result->execute();
-            //$result = pg_exec($db_connection, $query);   
-            if ($result) {             
-                $dbResults = $result;
-            } else {        
-                echo "The query failed with the following error:<br>n";        
-                echo pg_errormessage($db_handle);        
-            }    
-
-            return $dbResults;
-        }
-
-        public function getChairItems() {
-            $result = $GLOBALS['db']->query("SELECT name FROM lookup_chair");   
-            $result->execute();
-            //$result = pg_exec($db_connection, $query);   
-            if ($result) {             
-                $dbResults = $result;
-            } else {        
-                echo "The query failed with the following error:<br>n";        
-                echo pg_errormessage($db_handle);        
-            }    
-
-            return $dbResults;
-        }
-
-        public function getPositionItems() {
-            $result = $GLOBALS['db']->query("SELECT name FROM lookup_position");   
+        public function getStatusItems() {
+            $result = $GLOBALS['db']->query("SELECT name FROM fixture_status");   
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
@@ -82,6 +40,7 @@ defined('_CSEXEC') or die;
 
         public function getList($filters = "", $order = "l.id ASC") {
 
+            $dbResults = array();
             $result = $GLOBALS['db']->query(
                 "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name sn
                 FROM lookup l 

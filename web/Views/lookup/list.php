@@ -1,4 +1,11 @@
 <?php defined('_CSEXEC') or die; ?>
+<style>
+    i {
+        color: black;
+        font-size: 32px;
+        text-shadow:2px 2px 4px #000000;
+    }
+</style>
 <div class="container">
     <table class="table">
       <thead>
