@@ -15,7 +15,7 @@ defined('_CSEXEC') or die;
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
-                $dbResults = $results;
+                $dbResults = $result;
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
@@ -29,7 +29,7 @@ defined('_CSEXEC') or die;
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
-                $dbResults = $results;
+                $dbResults = $result;
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
@@ -43,7 +43,7 @@ defined('_CSEXEC') or die;
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
-                $dbResults = $results;
+                $dbResults = $result;
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
@@ -57,7 +57,7 @@ defined('_CSEXEC') or die;
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
-                $dbResults = $results;
+                $dbResults = $result;
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
@@ -71,7 +71,7 @@ defined('_CSEXEC') or die;
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
-                $dbResults = $results;
+                $dbResults = $result;
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
@@ -80,16 +80,20 @@ defined('_CSEXEC') or die;
             return $dbResults;
         }
 
-        public function getList() {
+        public function getList($filters = "", $order = "l.id ASC") {
+
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, f.number, s.name sn
+                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name sn
                 FROM lookup l 
                 INNER JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 INNER JOIN lookup_level le ON l.lookup_level_id = le.id
                 INNER JOIN lookup_catwalk cat ON l.lookup_catwalk_id = cat.id
+				INNER JOIN lookup_chair ch ON l.lookup_chair_id = ch.id
+				INNER JOIN lookup_position pos ON l.lookup_position_id = pos.id
                 INNER JOIN fixture f ON l.fixture_id = f.id
                 INNER JOIN fixture_status s on f.fixture_status_id = s.id
-                ORDER BY l.id ASC;
+                $filters
+                ORDER BY $order;
                 ");   
             $result->execute();
             //$result = pg_exec($db_connection, $query);   

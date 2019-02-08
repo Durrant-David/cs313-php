@@ -1,0 +1,6 @@
+.floatingBox {
+    position: absolute;
+    width: 100px;
+    left: 100px;
+    top: 150px;
+}
