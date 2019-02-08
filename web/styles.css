@@ -5,7 +5,7 @@ body, html {
 
 .bgMtn1 {
   /* The image used */
-  background-image: url("/media/images/IMG_20180724_090202.jpg");
+  background-image: url("media/images/IMG_20180724_090202.jpg");
 
   /* Full height */
   height: 300px; 
@@ -18,7 +18,7 @@ body, html {
 
 .bgMtn2 {
   /* The image used */
-  background-image: url("/media/images/timpanogos.jpg");
+  background-image: url("media/images/timpanogos.jpg");
 
   /* Full height */
   height: 500px; 
