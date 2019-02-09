@@ -10,13 +10,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1">Status</th>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-3">Type</th>
+          <th class="col-xs-2">Status</th>
+          <th class="col-xs-2">Type</th>
           <th class="col-xs-2">Level</th>
           <th class="col-xs-2">Catwalk</th>
-          <th class="col-xs-2">Number</th>
+          <th class="col-xs-4">Number</th>
         </tr>
       </thead>
       <tbody>
