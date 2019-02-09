@@ -11,11 +11,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Type</th>
-          <th scope="col">Level</th>
-          <th scope="col">Catwalk</th>
-          <th scope="col">Number</th>
-          <th scope="col">Status</th>
+          <th class="col-xs-2">Status</th>
+          <th class="col-xs-2">Type</th>
+          <th class="col-xs-2">Level</th>
+          <th class="col-xs-2">Catwalk</th>
+          <th class="col-xs-4">Number</th>
         </tr>
       </thead>
       <tbody>

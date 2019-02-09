@@ -17,12 +17,12 @@ defined('_CSEXEC') or die;
             {
                 ?>
                 <tr>
-                  <th scope="row"><?php echo $item['type']; ?></th>
-                  <td><?php echo $item['level']; ?></td>
-                  <td><?php echo $item['catwalk']; ?></td>
-                  <td><?php echo $item['number']; ?></td>
-                  <td><?php echo $this->activeIcon($item['status']); ?>
+                  <td class="col-1"><?php echo $this->activeIcon($item['status']); ?>
                     <i class="far fa-edit listIcon"></i></td>
+                  <td class="col-1"><?php echo $item['type']; ?></td>
+                  <td class="col-2"><?php echo $item['level']; ?></td>
+                  <td class="col-4"><?php echo $item['catwalk']; ?></td>
+                  <td class="col-4"><?php echo $item['number']; ?></td>
                 </tr>  
                 <?php
             }

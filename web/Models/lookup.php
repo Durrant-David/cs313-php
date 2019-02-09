@@ -2,9 +2,6 @@
 defined('_CSEXEC') or die;
     class LookupModel
     {
-
-        private $message = 'Welcome to Home page.';
-
         function __construct()
         {
 
