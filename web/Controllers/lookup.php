@@ -47,7 +47,7 @@ defined('_CSEXEC') or die;
             $icon = '<i class="fas fa-lightbulb listIcon" style="color:' 
                 . $bulb . 
                 ';"></i>
-                    <td class="col-1"><i class="fas fa-tag listIcon" style="color:' 
+                    <i class="fas fa-tag listIcon" style="color:' 
                 . $tag . 
                 ';"></i>';
             
