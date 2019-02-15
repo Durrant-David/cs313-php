@@ -1,4 +1,15 @@
-<?php defined('_CSEXEC') or die; ?>
+<?php defined('_CSEXEC') or die; 
+
+$id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
+
+$type = isset($_POST['type']) ? htmlspecialchars($_POST['type']) : '';
+$level = isset($_POST['level']) ? htmlspecialchars($_POST['level']) : '';
+$catwalk = isset($_POST['catwalk']) ? htmlspecialchars($_POST['catwalk']) : '';
+$chair = isset($_POST['chair']) ? htmlspecialchars($_POST['chair']) : '';
+$status = isset($_POST['status']) ? htmlspecialchars($_POST['status']) : '';
+$fixture = isset($_POST['fixture']) ? htmlspecialchars($_POST['fixture']) : '';
+
+?>
 <style>
     .listIcon {
         color: black;
@@ -14,7 +25,7 @@
 </style>
 <div class="container">
     <h2>Edit Lookup Item</h2>
-    <form action="/action_page.php">
+    <form action="" method="post">
         <div class="form-group">
             <label for="type">Type:</label>
             <select id="type" class="form-control" name="type">
@@ -70,3 +81,12 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
+<script>
+<?php echo $this->controller->loadItemValues($id); ?>
+
+function SelectElement(id, valueToSelect)
+{    
+    var element = document.getElementById(id);
+    element.value = valueToSelect;
+}
+</script>
