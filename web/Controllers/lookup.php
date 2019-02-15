@@ -18,7 +18,7 @@ defined('_CSEXEC') or die;
                 ?>
                 <tr>
                   <td class="col-1"><?php echo $this->activeIcon($item['status']); ?>
-                    <i class="far fa-edit listIcon"></i></td>
+                      <a href="edit"><i class="far fa-edit listIcon"></i></a></td>
                   <td class="col-1"><?php echo $item['type']; ?></td>
                   <td class="col-2"><?php echo $item['level']; ?></td>
                   <td class="col-4"><?php echo $item['catwalk']; ?></td>
@@ -36,7 +36,7 @@ defined('_CSEXEC') or die;
                     $tag = "red";
                     break;
                 case "Burn Out":
-                    $bulb = "black";
+                    $bulb = "red";
                     $tag = "black";
                     break;
                 default:
@@ -227,6 +227,51 @@ defined('_CSEXEC') or die;
             
             // return the string for filtering
             return $query;
+        }
+        
+        public function editItem($id)
+        {
+            // get the database items
+            $item = $this->model->getLookupItem($id);
+            foreach ($item as $values) 
+            {
+                ?>
+                <tr>
+                  <td class="col-1"><?php echo $this->activeIcon($values['status']); ?>
+                      <a href="edit"><i class="far fa-edit listIcon"></i></a></td>
+                  <td class="col-1"><?php echo $values['type']; ?></td>
+                  <td class="col-2"><?php echo $values['level']; ?></td>
+                  <td class="col-4"><?php echo $values['catwalk']; ?></td>
+                  <td class="col-4"><?php echo $values['number']; ?></td>
+                </tr>  
+                <?php
+            }
+        }
+        
+        public function selectFixture()
+        {
+            // get the database items
+            $items = $this->model->getFixtureList();
+            foreach ($items as $item) 
+            {
+                ?>
+                <tr>
+                    <td class="col-1">
+                        <div class="radio">
+                        <label>
+                            <input name="fixture" type="radio" value="<?php echo $item['id']; ?>">
+                        </label>
+                        </div>
+                    </td>
+                    <td class="col-1">
+                        <?php echo $item['catwalk']; ?>
+                    </td>
+                    <td class="col-1">
+                        <?php echo $item['number']; ?>
+                    </td>
+                </tr>  
+                <?php
+            }
         }
     }
 ?>
