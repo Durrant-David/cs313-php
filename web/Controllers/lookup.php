@@ -256,17 +256,17 @@ defined('_CSEXEC') or die;
             {
                 ?>
                 <tr>
-                    <td class="col-1">
+                    <td class="col-4">
                         <div class="radio">
                         <label>
                             <input name="fixture" type="radio" value="<?php echo $item['id']; ?>">
                         </label>
                         </div>
                     </td>
-                    <td class="col-1">
+                    <td class="col-4">
                         <?php echo $item['catwalk']; ?>
                     </td>
-                    <td class="col-1">
+                    <td class="col-4">
                         <?php echo $item['number']; ?>
                     </td>
                 </tr>  

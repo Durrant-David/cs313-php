@@ -29,5 +29,10 @@ defined('_CSEXEC') or die;
         {
             include_once $GLOBALS['root'] . '/Views/lookup/index.php';
         }
+
+        public function edit()
+        {
+            include_once $GLOBALS['root'] . '/Views/lookup/edit.php';
+        }
     }
 ?>
