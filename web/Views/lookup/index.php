@@ -1,4 +1,5 @@
 <?php defined('_CSEXEC') or die; 
+$filters = $this->controller->getFilters();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +75,7 @@
             </tr>
         </table>
     </div>
+    <?php //include_once $GLOBALS['root'] . '/Views/lookup/list.php'; ?>
     <div id="list"></div>
     <script>
         function toggleLight(id, status) {
@@ -112,11 +114,16 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("list").innerHTML =
-                        this.responseText;
+                    document.getElementById("list").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "list", true);
+            xhttp.open("GET", "list?type=<?php echo $filters["type"]; 
+                       ?>&level=<?php echo $filters["level"]; 
+                       ?>&catwalk=<?php echo $filters["catwalk"]; 
+                       ?>&chair=<?php echo $filters["chair"]; 
+                       ?>&position=<?php echo $filters["position"]; 
+                       ?>&status=<?php echo $filters["status"]; 
+                       ?>", true);
             xhttp.send();
         }
 
