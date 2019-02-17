@@ -33,6 +33,11 @@ defined('_CSEXEC') or die;
                             </ul>
 <!--
                             <?php
+            if ($i == 1) {
+                ?>
+                alert("test");
+                <?php
+            }
 //                                if (session_status() == PHP_SESSION_NONE) {
 //                                    session_start();
 //                                }
@@ -56,6 +61,7 @@ defined('_CSEXEC') or die;
                     </div>
                 </nav>
             <?php
+            
         }
 
     }

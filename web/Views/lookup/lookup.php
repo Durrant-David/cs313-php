@@ -34,5 +34,20 @@ defined('_CSEXEC') or die;
         {
             include_once $GLOBALS['root'] . '/Views/lookup/edit.php';
         }
+
+        public function fixture()
+        {
+            include_once $GLOBALS['root'] . '/Views/lookup/selectedFixture.php';
+        }
+
+        public function save()
+        {
+            include_once $GLOBALS['root'] . '/Views/lookup/save.php';
+        }
+
+        public function status()
+        {
+            include_once $GLOBALS['root'] . '/Views/lookup/status.php';
+        }
     }
 ?>

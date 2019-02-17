@@ -39,7 +39,7 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name sn
+                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
                 FROM lookup l 
                 LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
@@ -75,7 +75,7 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name sn
+                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.id as fid, f.number as num, s.name as sn
                 FROM lookup l 
                 LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
@@ -83,7 +83,7 @@ defined('_CSEXEC') or die;
 				LEFT JOIN lookup_chair ch ON l.lookup_chair_id = ch.id
 				LEFT JOIN lookup_position pos ON l.lookup_position_id = pos.id
                 LEFT JOIN fixture f ON l.fixture_id = f.id
-                LEFT JOIN fixture_status s on f.fixture_status_id = s.id
+                LEFT JOIN fixture_status s ON f.fixture_status_id = s.id
                 WHERE l.id='$id'
                 ");   
             $result->execute();
@@ -97,7 +97,78 @@ defined('_CSEXEC') or die;
                     $array["chair"] = $row['chn'];
                     $array["position"] = $row['pn'];
                     $array["status"] = $row['sn'];
+                    $array["fixture_id"] = $row['fid'];
+                    $array["number"] = $row['num'];
                     $dbResults[] = $array;
+                }        
+            } else {        
+                echo "The query failed with the following error:<br>n";        
+                echo pg_errormessage($db_handle);        
+            }    
+
+            return $dbResults;
+        }
+
+        public function setLookupItem($values) {
+            try {
+                $query = "UPDATE lookup 
+                    SET lookup_type_id=:type, 
+                    lookup_level_id=:level, 
+                    lookup_catwalk_id=:catwalk, 
+                    lookup_chair_id=:chair, 
+                    lookup_position_id=:position, 
+                    fixture_id=:fixture
+                    WHERE id=:id";
+
+                $statement = $GLOBALS['db']->prepare($query);
+
+                $statement->bindValue(':id', $values["id"]);
+                $statement->bindValue(':type', $values["type"]);
+                $statement->bindValue(':level', $values["level"]);
+                $statement->bindValue(':catwalk', $values["catwalk"]);
+                $statement->bindValue(':chair', $values["chair"]);
+                $statement->bindValue(':position', $values["position"]);
+                $statement->bindValue(':fixture', $values["fixture"]);
+                $statement->execute();
+            }
+            catch (Exception $ex)
+            {
+
+                echo "Error with DB.";
+                die();
+            }
+
+        }
+
+        public function getItemId($table, $name) {
+
+            $dbResults = array();
+            $result = $GLOBALS['db']->query(
+                "SELECT id FROM lookup_$table WHERE name='$name'");   
+            $result->execute();
+            //$result = pg_exec($db_connection, $query);   
+            if ($result) {             
+                foreach($result->fetchAll() as $row) {  
+                    $dbResults = $row['id'];
+                }        
+            } else {        
+                echo "The query failed with the following error:<br>n";        
+                echo pg_errormessage($db_handle);        
+            }    
+
+            return $dbResults;
+        }
+
+        public function getStatusId($name) {
+
+            $dbResults = array();
+            $result = $GLOBALS['db']->query(
+                "SELECT id FROM fixture_status WHERE name='$name'");   
+            $result->execute();
+            //$result = pg_exec($db_connection, $query);   
+            if ($result) {             
+                foreach($result->fetchAll() as $row) {  
+                    $dbResults[] = $row['id'];
                 }        
             } else {        
                 echo "The query failed with the following error:<br>n";        
@@ -130,6 +201,56 @@ defined('_CSEXEC') or die;
             }    
 
             return $dbResults;
+        }
+
+        public function getFixtureItem($id) {
+
+            $dbResults = array();
+            $result = $GLOBALS['db']->query(
+                "SELECT f.id, l.name as cw, f.number as num
+                FROM fixture f 
+                LEFT JOIN lookup_catwalk l ON l.id = f.lookup_catwalk_id
+                WHERE f.id='$id'
+                ");   
+            $result->execute();
+            //$result = pg_exec($db_connection, $query);   
+            if ($result) {             
+                foreach($result->fetchAll() as $row) {  
+                    $array["id"] = $row['id'];        
+                    $array["catwalk"] = $row['cw'];
+                    $array["number"] = $row['num'];
+                    $dbResults[] = $array;
+                }        
+            } else {        
+                echo "The query failed with the following error:<br>n";        
+                echo pg_errormessage($db_handle);        
+            }    
+
+            return $dbResults;
+        }
+
+        public function setStatus($id, $status) {
+            $statusId = $this->getStatusId($status);
+            try {
+                    $query = "UPDATE fixture
+                                SET fixture_status_id = :status
+                                FROM lookup
+                                WHERE lookup.fixture_id = fixture.id 
+                                AND lookup.id = :lookup";
+
+                    $statement = $GLOBALS['db']->prepare($query);
+
+                    $statement->bindValue(':status', $statusId[0]);
+                    $statement->bindValue(':lookup', $id);
+                    $statement->execute();
+                }
+                catch (Exception $ex)
+                {
+
+                    echo "Error with DB.";
+                    die();
+                }
+
         }
     }
 ?>

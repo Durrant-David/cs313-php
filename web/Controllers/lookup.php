@@ -17,7 +17,8 @@ defined('_CSEXEC') or die;
             {
                 ?>
                 <tr>
-                  <td class="col-1"><?php echo $this->activeIcon($item['status']); ?>
+                  <td class="col-1">
+                      <?php echo $this->activeIcon($item['id'], $item['status']); ?>
                       <a href="edit?id=<?php echo $item["id"]; ?>"><i class="far fa-edit listIcon"></i></a></td>
                   <td class="col-1"><?php echo $item['type']; ?></td>
                   <td class="col-2"><?php echo $item['level']; ?></td>
@@ -28,7 +29,7 @@ defined('_CSEXEC') or die;
             }
         }
         
-        public function activeIcon($active) 
+        public function activeIcon($id, $active) 
         {
             switch ($active) {
                 case "Red Tag":
@@ -44,10 +45,12 @@ defined('_CSEXEC') or die;
                     $tag = "black";
                     break;
             }
-            $icon = '<i class="fas fa-lightbulb listIcon" style="color:' 
+            $icon = '<i onclick="toggleLight(' . $id . ', \'' . $active . '\')" 
+            class="fas fa-lightbulb listIcon" style="color:' 
                 . $bulb . 
                 ';"></i>
-                    <i class="fas fa-tag listIcon" style="color:' 
+                    <i onclick="toggleTag(' . $id . ', \'' . $active . '\')" 
+                    class="fas fa-tag listIcon" style="color:' 
                 . $tag . 
                 ';"></i>';
             
@@ -255,14 +258,37 @@ defined('_CSEXEC') or die;
             foreach ($items as $item) 
             {
                 ?>
-                <tr>
+                <tr onclick="setSelected(this
+                                     .childNodes[1]
+                                     .childNodes[1]
+                                     .childNodes[1]
+                                     .childNodes[1].id)">
                     <td class="col-4">
                         <div class="radio">
                         <label>
-                            <input name="fixture" type="radio" value="<?php echo $item['id']; ?>">
+                            <input name="fixtures" type="radio" id="<?php echo $item['id']; ?>">
                         </label>
                         </div>
                     </td>
+                    <td class="col-4">
+                        <?php echo $item['catwalk']; ?>
+                    </td>
+                    <td class="col-4">
+                        <?php echo $item['number']; ?>
+                    </td>
+                </tr>  
+                <?php
+            }
+        }
+        
+        public function selectedFixture($id)
+        {
+            // get the database items
+            $items = $this->model->getFixtureItem($id);
+            foreach ($items as $item) 
+            {
+                ?>
+                <tr>
                     <td class="col-4">
                         <?php echo $item['catwalk']; ?>
                     </td>
@@ -285,9 +311,32 @@ defined('_CSEXEC') or die;
                 SelectElement("catwalk", "<?php echo $item['catwalk']; ?>");
                 SelectElement("chair", "<?php echo $item['chair']; ?>");
                 SelectElement("position", "<?php echo $item['position']; ?>");
-                SelectElement("status", "<?php echo $item['status']; ?>");
+<!--     TODO setup status           SelectElement("status", "<?php echo $item['status']; ?>");-->
+                <?php if($item['fixture_id'] != '') { ?>
+                    document.getElementById("<?php echo $item['fixture_id']; ?>").checked = true;
+                <?php } ?>
+
+                window.onload = loadFixture(<?php echo $item['fixture_id']; ?>);
                 <?php
             }
         }
+        
+        public function updateItem($values) {
+            $type = $this->model->getItemId("type", $values["type"]);
+            $level = $this->model->getItemId("level", $values["level"]);
+            $catwalk = $this->model->getItemId("catwalk", $values["catwalk"]);
+            $chair = $this->model->getItemId("chair", $values["chair"]);
+            $position = $this->model->getItemId("position", $values["position"]);
+            
+            $values["type"] = $type;
+            $values["level"] = $level;
+            $values["catwalk"] = $catwalk;
+            $values["chair"] = $chair;
+            $values["position"] = $position;
+            
+            $this->model->setLookupItem($values);
+        }
+
     }
+
 ?>
