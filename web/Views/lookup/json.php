@@ -3,11 +3,9 @@
 if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	$origin = $_SERVER["HTTP_ORIGIN"];
 	$allowed_origins = array(
-		"http://public.app.moxio.com",
-		"https://foo.app.moxio.com",
-		"https://lorem.app.moxio.com"
+		"https://durrant-david.github.io/topic4/index.html"
 	);
-	if (in_array($origin, '*', true) === true) {
+	if (in_array($origin, $allowed_origins, true) === true) {
 		header('Access-Control-Allow-Origin: ' . $origin);
 		header('Access-Control-Allow-Credentials: false');
 		header('Access-Control-Allow-Methods: GET');
