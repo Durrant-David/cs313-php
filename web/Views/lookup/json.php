@@ -1,6 +1,7 @@
 <?php defined('_CSEXEC') or die; 
-
-if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
+ 
+header("Access-Control-Allow-Origin: *");
+/*if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	$origin = $_SERVER["HTTP_ORIGIN"];
 	$allowed_origins = array(
 		"https://durrant-david.github.io/topic4/index.html"
@@ -14,6 +15,6 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 		exit; // OPTIONS request wants only the policy, we can stop here
 	}
-}
+}*/
 
 $this->controller->toJSON();  
