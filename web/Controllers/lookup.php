@@ -28,6 +28,13 @@ defined('_CSEXEC') or die;
                 <?php
             }
         }
+
+        public function toJSON()
+        {
+            // get the database items
+            $items = $this->model->getList($this->filters());
+            echo json_encode($items);
+        }
         
         public function activeIcon($id, $active) 
         {

@@ -49,5 +49,10 @@ defined('_CSEXEC') or die;
         {
             include_once $GLOBALS['root'] . '/Views/lookup/status.php';
         }
+
+        public function api()
+        {
+            include_once $GLOBALS['root'] . '/Views/lookup/json.php';
+        }
     }
 ?>
