@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+
+    <div class="container">
+        <form action="/math" method="GET">
+            <input type="number_format" name="value1">
+            <input type="number_format" name="value2">
+            <select name="operation">
+                <option value="p">+</option>
+                <option value="m">-</option>
+                <option value="mu">*</option>
+                <option value="d">/</option>
+            </select>
+            <input type="submit" name="submit" value="Submit">
+            <input type="button" name="JSON" value="Results" onclick="mathServices()">
+        </form>
+        <div id="JSON"></div>
+    </div>
+<script>
+function mathServices() {
+    $("#JSON").load("math_service", $("form").serialize());
+}
+</script>
+
+</body>
+
+</html>
