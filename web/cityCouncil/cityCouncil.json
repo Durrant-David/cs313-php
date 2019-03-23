@@ -1,0 +1,424 @@
+{
+    "cards": [
+        {
+            "name": "blacksmith",
+            "basenum": "4",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "red",
+                "2": "purple",
+                "3": "-"
+            },
+            "bonuscard": "mine",
+            "location": "deck"
+        },
+        {
+            "name": "mine",
+            "basenum": "2",
+            "basecolor": "red",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "gray",
+                "2": "-",
+                "3": "-"
+            },
+            "bonuscard": "blacksmith",
+            "location": "deck"
+        },
+        {
+            "name": "alchemist",
+            "basenum": "3",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "-",
+                "2": "red",
+                "3": "blue"
+            },
+            "bonuscard": "well",
+            "location": "deck"
+        },
+        {
+            "name": "well",
+            "basenum": "1",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "green",
+                "2": "+",
+                "3": "-"
+            },
+            "bonuscard": "alchemist",
+            "location": "deck"
+        },
+        {
+            "name": "tavern",
+            "basenum": "2",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "gray",
+                "1": "+",
+                "2": "+",
+                "3": "+"
+            },
+            "bonuscard": "",
+            "location": "deck"
+        },
+        {
+            "name": "tailer",
+            "basenum": "2",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "green",
+                "1": "+",
+                "2": "+",
+                "3": "+"
+            },
+            "bonuscard": "",
+            "location": "deck"
+        },
+        {
+            "name": "church",
+            "basenum": "3",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "-",
+                "1": "+",
+                "2": "blue",
+                "3": "purple"
+            },
+            "bonuscard": "cemetery",
+            "location": "deck"
+        },
+        {
+            "name": "cemetery",
+            "basenum": "4",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "gray",
+                "1": "-",
+                "2": "+",
+                "3": "-"
+            },
+            "bonuscard": "church",
+            "location": "deck"
+        },
+        {
+            "name": "butcher",
+            "basenum": "2",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "green",
+                "2": "+",
+                "3": "-"
+            },
+            "bonuscard": "farmhouse",
+            "location": "deck"
+        },
+        {
+            "name": "farmhouse",
+            "basenum": "2",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "-",
+                "1": "green",
+                "2": "-",
+                "3": "+"
+            },
+            "bonuscard": "butcher",
+            "location": "deck"
+        },
+        {
+            "name": "quarry",
+            "basenum": "2",
+            "basecolor": "red",
+            "top": "0",
+            "bonus": {
+                "0": "blue",
+                "1": "+",
+                "2": "+",
+                "3": "+"
+            },
+            "bonuscard": "",
+            "location": "deck"
+        },
+        {
+            "name": "monument",
+            "basenum": "2",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "red",
+                "1": "+",
+                "2": "+",
+                "3": "+"
+            },
+            "bonuscard": "",
+            "location": "deck"
+        },
+        {
+            "name": "carpenter",
+            "basenum": "3",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "purple",
+                "1": "-",
+                "2": "green",
+                "3": "+"
+            },
+            "bonuscard": "lumber mill",
+            "location": "deck"
+        },
+        {
+            "name": "lumber mill",
+            "basenum": "2",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "red",
+                "1": "+",
+                "2": "-",
+                "3": "-"
+            },
+            "bonuscard": "carpenter",
+            "location": "deck"
+        },
+        {
+            "name": "dungeon",
+            "basenum": "4",
+            "basecolor": "red",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "red",
+                "2": "-",
+                "3": "gray"
+            },
+            "bonuscard": "courthouse",
+            "location": "deck"
+        },
+        {
+            "name": "courthouse",
+            "basenum": "4",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "gray",
+                "1": "-",
+                "2": "blue",
+                "3": "+"
+            },
+            "bonuscard": "dungeon",
+            "location": "deck"
+        },
+        {
+            "name": "lighthouse",
+            "basenum": "3",
+            "basecolor": "red",
+            "top": "0",
+            "bonus": {
+                "0": "red",
+                "1": "+",
+                "2": "-",
+                "3": "purple"
+            },
+            "bonuscard": "docks",
+            "location": "deck"
+        },
+        {
+            "name": "docks",
+            "basenum": "4",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "-",
+                "1": "-",
+                "2": "gray",
+                "3": "+"
+            },
+            "bonuscard": "lighthouse",
+            "location": "deck"
+        },
+        {
+            "name": "food market",
+            "basenum": "2",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "-",
+                "2": "green",
+                "3": "+"
+            },
+            "bonuscard": "gardens",
+            "location": "deck"
+        },
+        {
+            "name": "gardens",
+            "basenum": "2",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "-",
+                "2": "green",
+                "3": "-"
+            },
+            "bonuscard": "food market",
+            "location": "deck"
+        },
+        {
+            "name": "trading post",
+            "basenum": "4",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "purple",
+                "1": "gray",
+                "2": "-",
+                "3": "+"
+            },
+            "bonuscard": "inn",
+            "location": "deck"
+        },
+        {
+            "name": "inn",
+            "basenum": "3",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "gray",
+                "2": "-",
+                "3": "blue"
+            },
+            "bonuscard": "trading post",
+            "location": "deck"
+        },
+        {
+            "name": "granary",
+            "basenum": "1",
+            "basecolor": "gray",
+            "top": "0",
+            "bonus": {
+                "0": "-",
+                "1": "+",
+                "2": "+",
+                "3": "green"
+            },
+            "bonuscard": "baker",
+            "location": "deck"
+        },
+        {
+            "name": "baker",
+            "basenum": "1",
+            "basecolor": "green",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "+",
+                "2": "-",
+                "3": "blue"
+            },
+            "bonuscard": "granary",
+            "location": "deck"
+        },
+        {
+            "name": "library",
+            "basenum": "3",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "blue",
+                "1": "-",
+                "2": "+",
+                "3": "gray"
+            },
+            "bonuscard": "book shop",
+            "location": "deck"
+        },
+        {
+            "name": "book shop",
+            "basenum": "3",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "green",
+                "1": "blue",
+                "2": "+",
+                "3": "-"
+            },
+            "bonuscard": "library",
+            "location": "deck"
+        },
+        {
+            "name": "herbalist",
+            "basenum": "2",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "-",
+                "2": "+",
+                "3": "red"
+            },
+            "bonuscard": "hospital",
+            "location": "deck"
+        },
+        {
+            "name": "hospital",
+            "basenum": "4",
+            "basecolor": "blue",
+            "top": "0",
+            "bonus": {
+                "0": "-",
+                "1": "blue",
+                "2": "red",
+                "3": "+"
+            },
+            "bonuscard": "herbalist",
+            "location": "deck"
+        },
+        {
+            "name": "stables",
+            "basenum": "1",
+            "basecolor": "red",
+            "top": "0",
+            "bonus": {
+                "0": "purple",
+                "1": "-",
+                "2": "-",
+                "3": "+"
+            },
+            "bonuscard": "map maker",
+            "location": "deck"
+        },
+        {
+            "name": "map maker",
+            "basenum": "2",
+            "basecolor": "purple",
+            "top": "0",
+            "bonus": {
+                "0": "+",
+                "1": "-",
+                "2": "+",
+                "3": "red"
+            },
+            "bonuscard": "stables",
+            "location": "deck"
+        }
+    ]
+}
