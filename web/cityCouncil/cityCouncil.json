@@ -2,6 +2,7 @@
     "cards": [
         {
             "name": "blacksmith",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "gray",
             "top": "0",
@@ -11,11 +12,11 @@
                 "2": "purple",
                 "3": "-"
             },
-            "bonuscard": "mine",
-            "location": "deck"
+            "bonuscard": "mine"
         },
         {
             "name": "mine",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "red",
             "top": "0",
@@ -25,11 +26,11 @@
                 "2": "-",
                 "3": "-"
             },
-            "bonuscard": "blacksmith",
-            "location": "deck"
+            "bonuscard": "blacksmith"
         },
         {
             "name": "alchemist",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "purple",
             "top": "0",
@@ -39,11 +40,11 @@
                 "2": "red",
                 "3": "blue"
             },
-            "bonuscard": "well",
-            "location": "deck"
+            "bonuscard": "well"
         },
         {
             "name": "well",
+            "location": "deck",
             "basenum": "1",
             "basecolor": "blue",
             "top": "0",
@@ -53,11 +54,11 @@
                 "2": "+",
                 "3": "-"
             },
-            "bonuscard": "alchemist",
-            "location": "deck"
+            "bonuscard": "alchemist"
         },
         {
             "name": "tavern",
+            "location": "start",
             "basenum": "2",
             "basecolor": "green",
             "top": "0",
@@ -67,11 +68,11 @@
                 "2": "+",
                 "3": "+"
             },
-            "bonuscard": "",
-            "location": "start"
+            "bonuscard": ""
         },
         {
             "name": "tailer",
+            "location": "start",
             "basenum": "2",
             "basecolor": "gray",
             "top": "0",
@@ -81,11 +82,11 @@
                 "2": "+",
                 "3": "+"
             },
-            "bonuscard": "",
-            "location": "start"
+            "bonuscard": ""
         },
         {
             "name": "church",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "blue",
             "top": "0",
@@ -95,11 +96,11 @@
                 "2": "blue",
                 "3": "purple"
             },
-            "bonuscard": "cemetery",
-            "location": "deck"
+            "bonuscard": "cemetery"
         },
         {
             "name": "cemetery",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "blue",
             "top": "0",
@@ -109,11 +110,11 @@
                 "2": "+",
                 "3": "-"
             },
-            "bonuscard": "church",
-            "location": "deck"
+            "bonuscard": "church"
         },
         {
             "name": "butcher",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "green",
             "top": "0",
@@ -123,11 +124,11 @@
                 "2": "+",
                 "3": "-"
             },
-            "bonuscard": "farmhouse",
-            "location": "deck"
+            "bonuscard": "farmhouse"
         },
         {
             "name": "farmhouse",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "gray",
             "top": "0",
@@ -137,11 +138,11 @@
                 "2": "-",
                 "3": "+"
             },
-            "bonuscard": "butcher",
-            "location": "deck"
+            "bonuscard": "butcher"
         },
         {
             "name": "quarry",
+            "location": "start",
             "basenum": "2",
             "basecolor": "red",
             "top": "0",
@@ -151,11 +152,11 @@
                 "2": "+",
                 "3": "+"
             },
-            "bonuscard": "",
-            "location": "start"
+            "bonuscard": ""
         },
         {
             "name": "monument",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "blue",
             "top": "0",
@@ -165,11 +166,11 @@
                 "2": "+",
                 "3": "+"
             },
-            "bonuscard": "",
-            "location": "start"
+            "bonuscard": ""
         },
         {
             "name": "carpenter",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "gray",
             "top": "0",
@@ -179,11 +180,11 @@
                 "2": "green",
                 "3": "+"
             },
-            "bonuscard": "lumber mill",
-            "location": "deck"
+            "bonuscard": "lumber mill"
         },
         {
             "name": "lumber mill",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "gray",
             "top": "0",
@@ -193,11 +194,11 @@
                 "2": "-",
                 "3": "-"
             },
-            "bonuscard": "carpenter",
-            "location": "deck"
+            "bonuscard": "carpenter"
         },
         {
             "name": "dungeon",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "red",
             "top": "0",
@@ -207,11 +208,11 @@
                 "2": "-",
                 "3": "gray"
             },
-            "bonuscard": "courthouse",
-            "location": "deck"
+            "bonuscard": "courthouse"
         },
         {
             "name": "courthouse",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "purple",
             "top": "0",
@@ -221,11 +222,11 @@
                 "2": "blue",
                 "3": "+"
             },
-            "bonuscard": "dungeon",
-            "location": "deck"
+            "bonuscard": "dungeon"
         },
         {
             "name": "lighthouse",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "red",
             "top": "0",
@@ -235,11 +236,11 @@
                 "2": "-",
                 "3": "purple"
             },
-            "bonuscard": "docks",
-            "location": "deck"
+            "bonuscard": "docks"
         },
         {
             "name": "docks",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "gray",
             "top": "0",
@@ -249,11 +250,11 @@
                 "2": "gray",
                 "3": "+"
             },
-            "bonuscard": "lighthouse",
-            "location": "deck"
+            "bonuscard": "lighthouse"
         },
         {
             "name": "food market",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "green",
             "top": "0",
@@ -263,11 +264,11 @@
                 "2": "green",
                 "3": "+"
             },
-            "bonuscard": "gardens",
-            "location": "deck"
+            "bonuscard": "gardens"
         },
         {
             "name": "gardens",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "blue",
             "top": "0",
@@ -277,11 +278,11 @@
                 "2": "green",
                 "3": "-"
             },
-            "bonuscard": "food market",
-            "location": "deck"
+            "bonuscard": "food market"
         },
         {
             "name": "trading post",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "green",
             "top": "0",
@@ -291,11 +292,11 @@
                 "2": "-",
                 "3": "+"
             },
-            "bonuscard": "inn",
-            "location": "deck"
+            "bonuscard": "inn"
         },
         {
             "name": "inn",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "green",
             "top": "0",
@@ -305,11 +306,11 @@
                 "2": "-",
                 "3": "blue"
             },
-            "bonuscard": "trading post",
-            "location": "deck"
+            "bonuscard": "trading post"
         },
         {
             "name": "granary",
+            "location": "deck",
             "basenum": "1",
             "basecolor": "gray",
             "top": "0",
@@ -319,11 +320,11 @@
                 "2": "+",
                 "3": "green"
             },
-            "bonuscard": "baker",
-            "location": "deck"
+            "bonuscard": "baker"
         },
         {
             "name": "baker",
+            "location": "deck",
             "basenum": "1",
             "basecolor": "green",
             "top": "0",
@@ -333,11 +334,11 @@
                 "2": "-",
                 "3": "blue"
             },
-            "bonuscard": "granary",
-            "location": "deck"
+            "bonuscard": "granary"
         },
         {
             "name": "library",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "purple",
             "top": "0",
@@ -347,11 +348,11 @@
                 "2": "+",
                 "3": "gray"
             },
-            "bonuscard": "book shop",
-            "location": "deck"
+            "bonuscard": "book shop"
         },
         {
             "name": "book shop",
+            "location": "deck",
             "basenum": "3",
             "basecolor": "purple",
             "top": "0",
@@ -361,11 +362,11 @@
                 "2": "+",
                 "3": "-"
             },
-            "bonuscard": "library",
-            "location": "deck"
+            "bonuscard": "library"
         },
         {
             "name": "herbalist",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "purple",
             "top": "0",
@@ -375,11 +376,11 @@
                 "2": "+",
                 "3": "red"
             },
-            "bonuscard": "hospital",
-            "location": "deck"
+            "bonuscard": "hospital"
         },
         {
             "name": "hospital",
+            "location": "deck",
             "basenum": "4",
             "basecolor": "blue",
             "top": "0",
@@ -389,11 +390,11 @@
                 "2": "red",
                 "3": "+"
             },
-            "bonuscard": "herbalist",
-            "location": "deck"
+            "bonuscard": "herbalist"
         },
         {
             "name": "stables",
+            "location": "deck",
             "basenum": "1",
             "basecolor": "red",
             "top": "0",
@@ -403,11 +404,11 @@
                 "2": "-",
                 "3": "+"
             },
-            "bonuscard": "map maker",
-            "location": "deck"
+            "bonuscard": "map maker"
         },
         {
             "name": "map maker",
+            "location": "deck",
             "basenum": "2",
             "basecolor": "purple",
             "top": "0",
@@ -417,8 +418,7 @@
                 "2": "+",
                 "3": "red"
             },
-            "bonuscard": "stables",
-            "location": "deck"
+            "bonuscard": "stables"
         }
     ]
 }
