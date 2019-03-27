@@ -68,7 +68,7 @@
                 "3": "+"
             },
             "bonuscard": "",
-            "location": "deck"
+            "location": "start"
         },
         {
             "name": "tailer",
@@ -82,7 +82,7 @@
                 "3": "+"
             },
             "bonuscard": "",
-            "location": "deck"
+            "location": "start"
         },
         {
             "name": "church",
@@ -152,7 +152,7 @@
                 "3": "+"
             },
             "bonuscard": "",
-            "location": "deck"
+            "location": "start"
         },
         {
             "name": "monument",
@@ -166,7 +166,7 @@
                 "3": "+"
             },
             "bonuscard": "",
-            "location": "deck"
+            "location": "start"
         },
         {
             "name": "carpenter",
