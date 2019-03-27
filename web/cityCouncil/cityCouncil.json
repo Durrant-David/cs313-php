@@ -156,7 +156,7 @@
         },
         {
             "name": "monument",
-            "location": "deck",
+            "location": "start",
             "basenum": "2",
             "basecolor": "blue",
             "top": "0",
