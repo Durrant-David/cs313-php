@@ -4,6 +4,8 @@
             "name": "blacksmith",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -18,6 +20,8 @@
             "name": "mine",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "red",
             "top": "0",
             "bonus": {
@@ -32,6 +36,8 @@
             "name": "alchemist",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
@@ -46,6 +52,8 @@
             "name": "well",
             "location": "deck",
             "basenum": "1",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -60,6 +68,8 @@
             "name": "tavern",
             "location": "start",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -74,6 +84,8 @@
             "name": "tailer",
             "location": "start",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -88,6 +100,8 @@
             "name": "church",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -102,6 +116,8 @@
             "name": "cemetery",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -116,6 +132,8 @@
             "name": "butcher",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -130,6 +148,8 @@
             "name": "farmhouse",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -144,6 +164,8 @@
             "name": "quarry",
             "location": "start",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "red",
             "top": "0",
             "bonus": {
@@ -158,6 +180,8 @@
             "name": "monument",
             "location": "start",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -172,6 +196,8 @@
             "name": "carpenter",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -186,6 +212,8 @@
             "name": "lumber mill",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -200,6 +228,8 @@
             "name": "dungeon",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "red",
             "top": "0",
             "bonus": {
@@ -214,6 +244,8 @@
             "name": "courthouse",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
@@ -228,6 +260,8 @@
             "name": "lighthouse",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "red",
             "top": "0",
             "bonus": {
@@ -242,6 +276,8 @@
             "name": "docks",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -256,6 +292,8 @@
             "name": "food market",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -270,6 +308,8 @@
             "name": "gardens",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -284,6 +324,8 @@
             "name": "trading post",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -298,6 +340,8 @@
             "name": "inn",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -312,6 +356,8 @@
             "name": "granary",
             "location": "deck",
             "basenum": "1",
+            "score": "",
+            "player": "",
             "basecolor": "gray",
             "top": "0",
             "bonus": {
@@ -326,6 +372,8 @@
             "name": "baker",
             "location": "deck",
             "basenum": "1",
+            "score": "",
+            "player": "",
             "basecolor": "green",
             "top": "0",
             "bonus": {
@@ -340,6 +388,8 @@
             "name": "library",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
@@ -354,6 +404,8 @@
             "name": "book shop",
             "location": "deck",
             "basenum": "3",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
@@ -368,6 +420,8 @@
             "name": "herbalist",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
@@ -382,6 +436,8 @@
             "name": "hospital",
             "location": "deck",
             "basenum": "4",
+            "score": "",
+            "player": "",
             "basecolor": "blue",
             "top": "0",
             "bonus": {
@@ -396,6 +452,8 @@
             "name": "stables",
             "location": "deck",
             "basenum": "1",
+            "score": "",
+            "player": "",
             "basecolor": "red",
             "top": "0",
             "bonus": {
@@ -410,6 +468,8 @@
             "name": "map maker",
             "location": "deck",
             "basenum": "2",
+            "score": "",
+            "player": "",
             "basecolor": "purple",
             "top": "0",
             "bonus": {
