@@ -182,17 +182,22 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT f.id, l.name as cw, f.number as num
+                "SELECT f.id, ty.name as tyn, lvl.name as lvln, cw.name as cwn, fp.name as fpn
                 FROM fixture f 
-                LEFT JOIN lookup_catwalk l ON l.id = f.lookup_catwalk_id
+                LEFT JOIN lookup_type ty ON ty.id = f.lookup_type_id
+                LEFT JOIN lookup_level lvl ON lvl.id = f.lookup_level_id
+                LEFT JOIN lookup_catwalk cw ON cw.id = f.lookup_catwalk_id
+                LEFT JOIN fixture_position fp ON fp.id = f.fixture_position_id
                 ");   
             $result->execute();
             //$result = pg_exec($db_connection, $query);   
             if ($result) {             
                 foreach($result->fetchAll() as $row) {  
                     $array["id"] = $row['id'];        
-                    $array["catwalk"] = $row['cw'];
-                    $array["number"] = $row['num'];
+                    $array["type"] = $row['tyn'];
+                    $array["level"] = $row['lvln'];
+                    $array["catwalk"] = $row['cwn'];
+                    $array["number"] = $row['fpn'];
                     $dbResults[] = $array;
                 }        
             } else {        
