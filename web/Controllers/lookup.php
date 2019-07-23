@@ -12,8 +12,8 @@ defined('_CSEXEC') or die;
         public function displayList()
         {
             // get the database items
-            /*$items = $this->model->getList($this->filters());
-            foreach ($items as $item) 
+            $items = $this->model->getList($this->filters());
+            /*foreach ($items as $item) 
             {
                 ?>
                 <tr>
