@@ -39,8 +39,9 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id
+                "SELECT l.id, ty.name as tyn
                 FROM lookup l 
+                LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 $filters
                 ORDER BY $order;
                 ");   
