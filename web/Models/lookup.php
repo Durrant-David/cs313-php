@@ -39,7 +39,7 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn
+                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
                 FROM lookup l 
                 LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
