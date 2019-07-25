@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <?php
-            echo $this->controller->displayList();  
+            //echo $this->controller->displayList();  
         ?>
       </tbody>
     </table>
