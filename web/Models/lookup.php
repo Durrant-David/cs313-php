@@ -39,8 +39,8 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT id
-                FROM lookup
+                "SELECT l.id
+                FROM lookup l
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
@@ -68,7 +68,7 @@ defined('_CSEXEC') or die;
                     $dbResults[] = $array;
                 }        
             } else {        
-                echo "testThe query failed with the following error:<br>n";        
+                echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
             }    
 
