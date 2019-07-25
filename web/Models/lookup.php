@@ -61,7 +61,7 @@ defined('_CSEXEC') or die;
             if ($result) {             
                 foreach($result->fetchAll() as $row) {  
                     $array["id"] = $row['id'];
-//                    $array["type"] = $row['tyn'];        
+                    $array["type"] = $row['tyn'];        
 //                    $array["level"] = $row['len'];        
 //                    $array["catwalk"] = $row['catn'];
 //                    $array["number"] = $row['fpn'];
