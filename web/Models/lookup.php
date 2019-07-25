@@ -39,8 +39,8 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id
-                FROM lookup l 
+                "SELECT id
+                FROM fixture
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
@@ -56,7 +56,7 @@ defined('_CSEXEC') or die;
 //                ORDER BY $order;
 //                ");   
             $result->execute();
-            $result = pg_exec($db_connection, $query);   
+//            $result = pg_exec($db_connection, $query);   
             if ($result) {             
                 foreach($result->fetchAll() as $row) {  
                     $array["id"] = $row['id'];
