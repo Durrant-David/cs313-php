@@ -67,17 +67,18 @@ defined('_CSEXEC') or die;
 //                ");   
             $result->execute();
 //            $result = pg_exec($db_connection, $query);   
-            if ($result) {             
-                foreach($result->fetchAll() as $row) {  
-                    $array["id"] = $row['id'];
-                    $array["type"] = $row['tyn'];        
-                    $array["level"] = $row['len'];        
-                    $array["catwalk"] = $row['catn'];   
-                    $array["chair"] = $row['chn'];
-                    $array["number"] = $row['fpn'];
-                    $array["status"] = $row['sn'];
-                    $dbResults[] = $array;
-                }        
+            if ($result) {           
+                var_dump($result);
+//                foreach($result->fetchAll() as $row) {  
+//                    $array["id"] = $row['id'];
+//                    $array["type"] = $row['tyn'];        
+//                    $array["level"] = $row['len'];        
+//                    $array["catwalk"] = $row['catn'];   
+//                    $array["chair"] = $row['chn'];
+//                    $array["number"] = $row['fpn'];
+//                    $array["status"] = $row['sn'];
+//                    $dbResults[] = $array;
+//                }        
             } else {        
                 echo "The query failed with the following error:<br>n";        
                 echo pg_errormessage($db_handle);        
