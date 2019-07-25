@@ -64,11 +64,11 @@ defined('_CSEXEC') or die;
             if ($result) {         
                 foreach($result->fetchAll() as $row) {    
                 var_dump($row);
-                    $array["id"] = $row['id'];
-                    $array["type"] = $row['tyn'];        
-                    $array["level"] = $row['len'];        
-                    $array["catwalk"] = $row['catn'];   
-                    $array["chair"] = $row['chn'];
+//                    $array["id"] = $row['id'];
+//                    $array["type"] = $row['tyn'];        
+//                    $array["level"] = $row['len'];        
+//                    $array["catwalk"] = $row['catn'];   
+//                    $array["chair"] = $row['chn'];
 //                    $array["number"] = $row['fpn'];
 //                    $array["status"] = $row['sn'];
                     $dbResults[] = $array;
