@@ -13,7 +13,7 @@ defined('_CSEXEC') or die;
         {
             // get the database items
             $items = $this->model->getList($this->filters());
-            /*foreach ($items as $item) 
+            foreach ($items as $item) 
             {
                 ?>
                 <tr>
@@ -21,14 +21,14 @@ defined('_CSEXEC') or die;
                       <?php echo $this->activeIcon($item['id'], $item['status']); ?>
                       <a href="edit?id=<?php echo $item["id"]; ?>"><i class="far fa-edit listIcon"></i></a></td>
 
-                  <td class="col-1"><?php /*echo $item['type']; ?></td>
+                  <td class="col-1"><?php echo $item['type']; ?></td>
                   <td class="col-2"><?php echo $item['level']; ?></td>
                   <td class="col-4"><?php echo $item['catwalk']; ?></td>
-                  <td class="col-4"><?php echo $item['number']; </td>
+                  <td class="col-4"><?php echo $item['number']; ?></td>
 
                 </tr>  
                 <?php
-            }*/
+            }
         }
 
         public function toJSON()
