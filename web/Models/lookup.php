@@ -39,15 +39,9 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, fp.number as fpn, s.name as sn
+                "SELECT l.id, ty.name as tyn
                 FROM lookup l 
                 LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
-                LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
-                LEFT JOIN lookup_catwalk cat ON l.lookup_catwalk_id = cat.id
-				LEFT JOIN lookup_chair ch ON l.lookup_chair_id = ch.id
-				LEFT JOIN lookup_position pos ON l.lookup_position_id = pos.id
-                LEFT JOIN fixture_position fp ON l.fixture_id = f.id
-                LEFT JOIN fixture_status s on f.fixture_status_id = s.id
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
@@ -68,10 +62,10 @@ defined('_CSEXEC') or die;
                 foreach($result->fetchAll() as $row) {  
                     $array["id"] = $row['id'];
                     $array["type"] = $row['tyn'];        
-                    $array["level"] = $row['len'];        
-                    $array["catwalk"] = $row['catn'];
-                    $array["number"] = $row['fpn'];
-                    $array["status"] = $row['sn'];
+//                    $array["level"] = $row['len'];        
+//                    $array["catwalk"] = $row['catn'];
+//                    $array["number"] = $row['fpn'];
+//                    $array["status"] = $row['sn'];
                     $dbResults[] = $array;
                 }        
             } else {        
