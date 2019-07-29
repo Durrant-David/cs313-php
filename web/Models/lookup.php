@@ -39,9 +39,10 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT f.id, ty.name as tyn
+                "SELECT f.id, ty.name as tyn, le.name as len
                 FROM fixture f 
                 LEFT JOIN lookup_type ty ON f.lookup_type_id = ty.id
+                LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
@@ -60,10 +61,9 @@ defined('_CSEXEC') or die;
 //            $result = pg_exec($db_connection, $query);   
             if ($result) {        
                 foreach($result->fetchAll() as $row) {    
-                var_dump($row);
-//                    $array["id"] = $row['id'];
-//                    $array["type"] = $row['tyn'];        
-//                    $array["level"] = $row['len'];        
+                    $array["id"] = $row['id'];
+                    $array["type"] = $row['tyn'];        
+                    $array["level"] = $row['len'];        
 //                    $array["catwalk"] = $row['catn'];   
 //                    $array["chair"] = $row['chn'];
 //                    $array["number"] = $row['fpn'];
