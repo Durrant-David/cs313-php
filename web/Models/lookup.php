@@ -39,9 +39,9 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn
-                FROM lookup l 
-                LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
+                "SELECT f.id, ty.name as tyn
+                FROM fixture f 
+                LEFT JOIN lookup_type ty ON f.lookup_type_id = ty.id
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
