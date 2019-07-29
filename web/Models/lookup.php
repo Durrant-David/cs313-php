@@ -47,7 +47,6 @@ defined('_CSEXEC') or die;
 				LEFT JOIN lookup_chair ch ON l.lookup_chair_id = ch.id
 				LEFT JOIN lookup_position pos ON l.lookup_position_id = pos.id
                 LEFT JOIN fixture f ON l.fixture_id = f.id
-                LEFT JOIN cat ON f.lookup_catwalk_id = cat.id
                 LEFT JOIN fixture_position fp on f.fixture_position_id = fp.id
                 LEFT JOIN fixture_status s on f.fixture_status_id = s.id
                 $filters
