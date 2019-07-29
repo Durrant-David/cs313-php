@@ -61,9 +61,9 @@ defined('_CSEXEC') or die;
 //            $result = pg_exec($db_connection, $query);   
             if ($result) {        
                 foreach($result->fetchAll() as $row) {    
-                    $array["id"] = $row['id'];
-                    $array["type"] = $row['tyn'];        
-                    $array["level"] = $row['len'];        
+                    echo $array["id"] = $row['id'];
+                    echo $array["type"] = $row['tyn'];        
+                    echo $array["level"] = $row['len'];        
 //                    $array["catwalk"] = $row['catn'];   
 //                    $array["chair"] = $row['chn'];
 //                    $array["number"] = $row['fpn'];
