@@ -39,7 +39,7 @@ defined('_CSEXEC') or die;
 
             $dbResults = array();
             $result = $GLOBALS['db']->query(
-                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, s.name as sn
+                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, fp.name as fpn, s.name as sn
                 FROM lookup l 
                 LEFT JOIN lookup_type ty ON l.lookup_type_id = ty.id
                 LEFT JOIN lookup_level le ON l.lookup_level_id = le.id
@@ -47,6 +47,7 @@ defined('_CSEXEC') or die;
 				LEFT JOIN lookup_chair ch ON l.lookup_chair_id = ch.id
 				LEFT JOIN lookup_position pos ON l.lookup_position_id = pos.id
                 LEFT JOIN fixture f ON l.fixture_id = f.id
+                LEFT JOIN fixture_position fp on f.fixture_position_id = fp.id
                 LEFT JOIN fixture_status s on f.fixture_status_id = s.id
                 ");   
 //            $result = $GLOBALS['db']->query(
@@ -71,8 +72,7 @@ defined('_CSEXEC') or die;
                     echo $array["level"] = $row['len'];        
                     echo $array["catwalk"] = $row['catn'];   
                     echo $array["chair"] = $row['chn'];
-                    echo $array["position"] = $row['pn'];
-//                    $array["number"] = $row['fpn'];
+                    echo $array["position"] = $row['fpn'];
                     echo $array["status"] = $row['sn'];
                     $dbResults[] = $array;
                 }        

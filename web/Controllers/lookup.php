@@ -18,7 +18,7 @@ defined('_CSEXEC') or die;
                 ?>
                 <tr>
                   <td class="col-1">
-                      <?php /*echo $this->activeIcon($item['id'], $item['status']);*/ ?>
+                      <?php echo $this->activeIcon($item['id'], $item['status']); ?>
                       <a href="edit?id=<?php echo $item["id"]; ?>"><i class="far fa-edit listIcon"></i></a></td>
 
                   <td class="col-1"><?php echo $item['type']; ?></td>
