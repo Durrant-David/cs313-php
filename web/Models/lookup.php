@@ -73,7 +73,7 @@ defined('_CSEXEC') or die;
                     echo $array["chair"] = $row['chn'];
                     echo $array["position"] = $row['pn'];
 //                    $array["number"] = $row['fpn'];
-//                    $array["status"] = $row['sn'];
+                    $array["status"] = $row['sn'];
                     $dbResults[] = $array;
                 }        
             } else {        
