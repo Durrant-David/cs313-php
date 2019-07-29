@@ -24,7 +24,7 @@ defined('_CSEXEC') or die;
                   <td class="col-1"><?php echo $item['type']; ?></td>
                   <td class="col-2"><?php echo $item['level']; ?></td>
                   <td class="col-4"><?php echo $item['catwalk']; ?></td>
-                  <td class="col-4"><?php /*echo $item['number'];*/ ?></td>
+                  <td class="col-4"><?php echo $item['position']; ?></td>
 
                 </tr>  
                 <?php

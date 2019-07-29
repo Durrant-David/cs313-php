@@ -49,6 +49,8 @@ defined('_CSEXEC') or die;
                 LEFT JOIN fixture f ON l.fixture_id = f.id
                 LEFT JOIN fixture_position fp on f.fixture_position_id = fp.id
                 LEFT JOIN fixture_status s on f.fixture_status_id = s.id
+                $filters
+                ORDER BY $order;
                 ");   
 //            $result = $GLOBALS['db']->query(
 //                "SELECT l.id, ty.name as tyn, le.name as len, cat.name as catn, ch.name as chn, pos.name as pn, f.number, s.name as sn
@@ -67,17 +69,17 @@ defined('_CSEXEC') or die;
 //            $result = pg_exec($db_connection, $query);   
             if ($result) {        
                 foreach($result->fetchAll() as $row) {    
-                    echo $array["id"] = $row['id'];
-                    echo $array["type"] = $row['tyn'];        
-                    echo $array["level"] = $row['len'];        
-                    echo $array["catwalk"] = $row['catn'];   
-                    echo $array["chair"] = $row['chn'];
-                    echo $array["position"] = $row['fpn'];
-                    echo $array["status"] = $row['sn'];
+                    $array["id"] = $row['id'];
+                    $array["type"] = $row['tyn'];        
+                    $array["level"] = $row['len'];        
+                    $array["catwalk"] = $row['catn'];   
+                    $array["chair"] = $row['chn'];
+                    $array["position"] = $row['fpn'];
+                    $array["status"] = $row['sn'];
                     $dbResults[] = $array;
                 }        
             } else {        
-                echo "The query failed with the following error:<br>n";        
+                echo "The query failed with the following error:<br>";        
                 echo pg_errormessage($db_handle);        
             }    
 
